@@ -1,0 +1,31 @@
+Azure OpenAI is a cloud service provided by Microsoft Azure that gives developers
+and organizations access to OpenAI's powerful language models through a secure,
+enterprise-grade API.
+
+Key models available through Azure OpenAI include:
+
+GPT-4o: OpenAI's most capable multimodal model, supporting text, vision, and
+structured outputs. It delivers high accuracy with fast inference.
+
+GPT-4o mini: A smaller, faster, and more cost-efficient version of GPT-4o
+suitable for high-throughput scenarios.
+
+o1 and o1-mini: Reasoning models that use chain-of-thought processing to solve
+complex problems in science, mathematics, and coding.
+
+text-embedding-3-small and text-embedding-3-large: Embedding models for semantic
+search, RAG pipelines, and similarity tasks.
+
+DALL-E 3: A text-to-image model for generating images from natural language
+descriptions.
+
+Azure OpenAI provides enterprise features including:
+- Private networking with Azure Virtual Network integration
+- Data encryption at rest and in transit
+- Content filtering and responsible AI safeguards
+- Azure Active Directory authentication
+- Regional availability with data residency controls
+- SLA-backed uptime guarantees
+
+The service is accessible via REST API, Python SDK, and integrations with
+frameworks such as LangChain, Semantic Kernel, and AutoGen.

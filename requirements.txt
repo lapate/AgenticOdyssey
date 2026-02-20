@@ -1,0 +1,19 @@
+# Core Azure OpenAI SDK
+openai>=1.30.0
+azure-identity>=1.16.0
+
+# AutoGen multi-agent framework (Lab 03)
+pyautogen>=0.2.25
+
+# Azure AI Search (Lab 04)
+azure-search-documents>=11.4.0
+
+# Environment management
+python-dotenv>=1.0.0
+
+# HTTP utilities
+httpx>=0.27.0
+requests>=2.31.0
+
+# Utilities
+rich>=13.7.0

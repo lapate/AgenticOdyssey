@@ -1,0 +1,37 @@
+Semantic Kernel is an open-source SDK developed by Microsoft that makes it easy
+to integrate AI models into applications. It acts as a middleware layer between
+your application code and AI services.
+
+Supported programming languages:
+- Python
+- C# (.NET)
+- Java
+
+Core abstractions in Semantic Kernel:
+
+Kernel: The central orchestration object. It holds services (LLMs, embeddings)
+and plugins, and executes functions.
+
+Plugin: A collection of related functions. Plugins can be built from:
+- Native code functions (Python, C#, Java)
+- Semantic functions (prompt templates in YAML/text files)
+- OpenAPI specifications
+
+KernelFunction: A single callable unit with a name, description, and parameters.
+The LLM uses these descriptions to decide when to call the function.
+
+Memory and VectorStore: Semantic Kernel includes connectors for storing and
+retrieving embeddings from stores such as Azure AI Search, Chroma, Qdrant, and
+Redis.
+
+Planner: A built-in capability that allows the kernel to automatically compose
+multiple functions (tools) to achieve a user-specified goal.
+
+Agents in Semantic Kernel (v1.0+) support:
+- ChatCompletionAgent: single-turn function-calling agent
+- OpenAIAssistantAgent: wraps the OpenAI Assistants API
+- AgentGroupChat: coordinates multiple agents in a collaborative conversation
+
+Semantic Kernel integrates natively with Azure OpenAI, OpenAI, and Hugging Face
+models. It is well-suited for enterprise .NET and Python applications that need
+structured AI orchestration.

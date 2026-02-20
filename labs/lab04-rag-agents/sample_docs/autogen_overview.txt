@@ -1,0 +1,31 @@
+AutoGen is an open-source framework developed by Microsoft Research that enables
+developers to build multi-agent AI applications with minimal effort.
+
+Core concepts in AutoGen:
+
+ConversableAgent: The base class for all agents. Any agent can send and receive
+messages, making it highly flexible.
+
+AssistantAgent: An LLM-backed agent that generates responses using a configurable
+system prompt. Typically used for domain-specific roles like Planner, Coder, etc.
+
+UserProxyAgent: Represents the human in the loop. It can automatically execute
+code blocks found in agent messages and relay the output back to the group.
+
+GroupChat: A construct that manages a multi-agent conversation, tracking message
+history and deciding which agent speaks next.
+
+GroupChatManager: An LLM-backed coordinator that decides the next speaker in a
+GroupChat, optionally using custom speaker-selection logic.
+
+AutoGen supports multiple conversation patterns:
+- Two-agent conversation (1:1)
+- Sequential group chat (round-robin)
+- Dynamic group chat (manager decides speaker)
+- Nested chat (an agent spawns a sub-conversation)
+
+Human-in-the-loop: Developers can configure agents to pause and request human
+approval before executing code or taking irreversible actions.
+
+AutoGen works with Azure OpenAI, OpenAI, Anthropic, and local models via Ollama.
+It is available as the Python package `pyautogen` on PyPI.
