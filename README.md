@@ -23,3 +23,20 @@ This repository contains a 3-lab, Python-first workshop for building, orchestrat
 - `common/` — shared setup/troubleshooting guides
 
 > Note: This repo intentionally **does not** include GitHub Actions for running Lab 3.
+
+## Optional: Spec-Kit Workflow
+This repository now includes a lightweight Spec-Kit scaffold for spec-driven changes.
+
+- Constitution: `.specify/memory/constitution.md`
+- Templates: `.specify/templates/`
+- Feature specs: `.specify/specs/<feature-id>/`
+- Copilot command prompts: `.github/agents/speckit.*.md`
+
+Typical flow:
+1. `/speckit.constitution`
+2. `/speckit.specify`
+3. `/speckit.clarify` (optional)
+4. `/speckit.plan`
+5. `/speckit.tasks`
+6. `/speckit.analyze` (optional)
+7. `/speckit.implement`
