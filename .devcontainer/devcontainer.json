@@ -1,9 +1,13 @@
 {
   "name": "Foundry Workshop",
   "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "features": {
+  "ghcr.io/devcontainers/features/azure-cli:1.2.9": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": ["ms-python.python","ms-toolsai.jupyter"]
     }
   }
+  
 }
