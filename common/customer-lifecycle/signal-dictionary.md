@@ -2,6 +2,12 @@
 
 Shared vocabulary for all customer-lifecycle labs and guides.
 
+## Canonical Learning Levels and Pass/Fail Boundary
+- **L100 (foundational orientation):** Understand scenario context, data sources, and shared vocabulary. No pass/fail completion gate.
+- **L200 (required baseline hands-on competency):** Deliver the required workshop outputs for completion/pass.
+- **L300 (advanced hands-on practice, WWL-aligned):** Advanced hands-on practice that builds on L100 and L200; optional enrichment and excluded from pass/fail.
+- **Workshop pass/fail boundary:** **L200 is required for pass. L300 is optional and must not affect pass/fail.**
+
 ## Standard Terms
 | Term | Definition |
 |---|---|

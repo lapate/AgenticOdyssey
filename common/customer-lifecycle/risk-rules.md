@@ -23,8 +23,7 @@ At-risk status requires **two or more** negative signals in the same scoring win
 | 0 | Stable recency, frequency, spend, margin, mix | Healthy | No intervention; monitor normally |
 | 1 | Frequency down only | Watch | Soft check-in only; no at-risk label |
 | 2 | Recency up + spend down | At-risk | Retention outreach + account follow-up |
-| 3 | Recency up + frequency down + margin down | At-risk | Escalated outreach + pricing/margin review |
-| 4-5 | Broad decline across signals | At-risk | Full recovery plan + leadership visibility |
+| 3+ | Recency up + frequency down + margin down (or broader decline) | At-risk | Escalated outreach + pricing/margin review; consider full recovery plan |
 
 ## Output Fields
 - `negative_signal_count`

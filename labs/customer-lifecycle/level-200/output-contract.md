@@ -2,6 +2,13 @@
 
 All Level 200 submissions must satisfy this contract.
 
+## Level 200 Baseline Requirement (Completion Boundary)
+Every learner must submit:
+1. **At-risk VIP/Gold identification** (using the 2+ negative-signal rule)
+2. **Plain-language explanation** for each at-risk VIP/Gold customer
+3. **Recommended human action** for each at-risk VIP/Gold customer
+4. **Portfolio summary** with tier counts, at-risk counts, and at-risk % by tier
+
 ## A. Portfolio Metrics (Required)
 | Metric | Required format |
 |---|---|
@@ -26,3 +33,4 @@ For each at-risk VIP/Gold customer:
 ## D. Pass/Fail Boundary
 - **Pass (Level 200):** Sections A+B+C fully met.
 - **Not required for pass:** Any Level 300 extension artifact.
+- **Grading rule:** L200 is the required baseline; L300 is optional enrichment and must not change pass/fail.

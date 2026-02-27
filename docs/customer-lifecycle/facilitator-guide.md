@@ -5,12 +5,29 @@
 - Primary audience: mixed technical levels, business-first framing.
 - Baseline scope: Level 200 only; Level 300 is optional enrichment.
 
+## Canonical Level Definitions (Use Verbatim)
+- **L100 (foundational orientation):** Understand scenario context, data sources, and shared vocabulary. No pass/fail completion gate.
+- **L200 (required baseline hands-on competency):** Deliver required workshop outputs for completion/pass.
+- **L300 (advanced hands-on practice, WWL-aligned):** Advanced hands-on practice that builds on L100 and L200; optional enrichment and excluded from pass/fail.
+
+## Grading Enforcement (L200-Only)
+- Workshop pass/fail is based on **L200 outputs only**.
+- L300 content must not be used as a requirement to pass.
+- If a learner completes all Level 200 outputs in `labs/customer-lifecycle/level-200/output-contract.md`, mark baseline as pass.
+- If any L200 mandatory output is missing, mark baseline as not yet complete.
+
 ## Phase Checkpoints (Timeboxed)
 | Phase | Target time | Facilitator checkpoint |
 |---|---:|---|
 | Copilot Studio | <=30 min | Learner produced at-risk VIP/Gold list with plain-language explanations |
 | Foundry | <=60 min | Learner produced structured signals, 2+ rule output, and portfolio summary |
 | Agent Framework | <=10 min | Learner showed explain-only alerts with mapped actions |
+
+## Timing Rubric
+- Copilot Studio: **<= 30 minutes**
+- Foundry: **<= 60 minutes**
+- Agent Framework: **<= 10 minutes**
+- If a team overruns, prioritize completion of remaining L200 mandatory outputs before any L300 activity.
 
 ## Misclassification Mitigation Prompts
 Use these prompts when learners over-classify:

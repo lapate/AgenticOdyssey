@@ -1,6 +1,8 @@
 # Level 300 Optional Extension Pack
 
-> Optional only. These items are enrichment and **must not** affect Level 200 pass/fail.
+> **L300 Optional Only:** These items are advanced enrichment and are explicitly **outside workshop pass/fail**.
+>  
+> **Do not gate completion on this file.** Workshop pass/fail is determined by Level 200 only.
 
 ## Extension Candidates
 1. **Weighted Health Index**
@@ -19,3 +21,4 @@
 - Do not replace baseline `RISK-2PLUS-NEGATIVE-SIGNALS`.
 - Keep Level 200 artifacts unchanged and independently completable.
 - Label all extension outputs as "Level 300 Optional".
+- Do not require any extension outcome for learner pass/fail decisions.
