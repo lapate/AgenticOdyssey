@@ -21,8 +21,7 @@ Shared vocabulary for all customer-lifecycle labs and guides.
 ## Foundry Stage Terminology (Level 300, Architecture-Agnostic)
 | Stage | Responsibility | Required output/handoff |
 |---|---|---|
-| Stage 1 | Ingest + score | `stage1_ingest_score` with `recency_days`, `frequency_90d`, `monetary_90d` |
-| Stage 2 | Tier + risk classification | `stage2_tier_risk` with `tier`, `negative_signal_count`, `risk_status`, `triggered_signals` |
+| Stage 2 (combined scoring + tier/risk) | RFM + tier/risk classification | `agent2-tier-report-{{customer_id}}` with `recency_days`, `frequency_90d`, `monetary_90d`, `tier`, `negative_signal_count`, `risk_status`, `triggered_signals` |
 | Stage 3 | Explanation + action mapping | `stage3_explain_action` with explanation/action fields linked to Stage 2 |
 | Stage 4 | Portfolio summary | `stage4_portfolio_summary` with tier counts, at-risk counts, and at-risk % by tier |
 | Stage 5 (optional) | Synthetic news enrichment | `stage5_news_enrichment` with event scope and action-context evidence |

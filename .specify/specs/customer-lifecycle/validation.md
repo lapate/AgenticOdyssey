@@ -15,8 +15,8 @@
 ### Walkthrough 1: Named-Customer Spot-Check
 - Customer used: `Contoso, Ltd.`
 - Path executed:
-  1. Confirm row exists in `stage1_ingest_score`.
-  2. Confirm `Contoso, Ltd.` carries forward to `stage2_tier_risk` with `triggered_signals`, `negative_signal_count`, `risk_status`.
+  1. Confirm row exists in `agent2-tier-report-{{customer_id}}` with RFM fields (`recency_days`, `frequency_90d`, `monetary_90d`).
+  2. Confirm `Contoso, Ltd.` is scored in `agent2-tier-report-{{customer_id}}` with `triggered_signals`, `negative_signal_count`, `risk_status`.
   3. Confirm `stage3_explain_action` includes plain-language explanation and recommended action for same `customer_id`.
 - Outcome: **Pass**
 - Remediation needed: None.

@@ -29,11 +29,10 @@ Recommended human actions tied to observed risk patterns.
 
 ## Foundry FR-015/FR-018 Vocabulary Parity
 - Required Level 300 Foundry stage outcomes are:
-  1. `stage1_ingest_score`
-  2. `stage2_tier_risk`
-  3. `stage3_explain_action`
-  4. `stage4_portfolio_summary`
-  5. `stage5_news_enrichment` (optional stage outcome when enrichment is used)
+  1. `agent2-tier-report-{{customer_id}}`
+  2. `stage3_explain_action`
+  3. `stage4_portfolio_summary`
+  4. `stage5_news_enrichment` (optional stage outcome when enrichment is used)
 - Architecture is topology-flexible, but implementation must stay within **3-5 agents** and preserve required stage outcomes.
 - Artifact status terms must use only: `complete`, `incomplete`, `needs rework`.
 - Foundry stop condition language must require both:

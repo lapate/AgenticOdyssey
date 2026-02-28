@@ -29,8 +29,8 @@ Use any 3-5 agent topology as long as these stage outcomes and handoffs are pres
 
 | Required stage outcome | Minimum handoff artifact | Required fields | Required source-lineage / evidence fields | L300 outcome coverage marker |
 |---|---|---|---|---|
-| Stage 1 - Ingest + score | `stage1_ingest_score` | `customer_id`, `customer_name`, `recency_days`, `frequency_90d`, `monetary_90d` | `source_dataset_name`, `source_row_count`, `rfm_window_days` (=90), `rfm_run_timestamp` | Identification input |
-| Stage 2 - Tier + risk classification | `stage2_tier_risk` | `customer_id`, `tier`, `triggered_signals`, `negative_signal_count`, `risk_status` | `risk_gate_rule_text` (`negative_signal_count >= 2 => at_risk`), `signal_window_note` | Identification |
+| Stage 0 - Unique customer index | `agent1-customer-index` | `customer_id`, `customer_name` | `source_dataset_name`, `distinct_customer_count` | Identification index |
+| Stage 2 - Combined scoring + tier/risk classification | `agent2-tier-report-{{customer_id}}` | `customer_id`, `customer_name`, `recency_days`, `frequency_90d`, `monetary_90d`, `tier`, `triggered_signals`, `negative_signal_count`, `risk_status` | `source_dataset_name`, `source_row_count`, `rfm_window_days` (=90), `rfm_run_timestamp`, `risk_gate_rule_text` (`negative_signal_count >= 2 => at_risk`), `signal_window_note` | Identification |
 | Stage 3 - Explanation + action mapping | `stage3_explain_action` | `customer_id`, `tier`, `risk_explanation_plain`, `action_recommendation`, `action_rationale` | `action_mapping_version`, `derived_from_stage2_artifact` | Explanation + Action |
 | Stage 4 - Portfolio summary | `stage4_portfolio_summary` | `tier`, `tier_count`, `at_risk_count`, `at_risk_pct` | `summary_source_artifact`, `summary_run_timestamp` | Portfolio summary |
 | Stage 5 (optional) - Synthetic news enrichment | `stage5_news_enrichment` | `customer_id`, `event_id`, `event_date`, `region`, `event_scope_status`, `event_company_reference` | `news_dataset_name` (`synthetic_regional_news_24m`), `scope_window_months` (=24), `news_exception_code` (if excluded) | Action refinement |
@@ -38,6 +38,7 @@ Use any 3-5 agent topology as long as these stage outcomes and handoffs are pres
 Notes:
 - Stage 5 is optional for topology, but synthetic-news evidence requirements apply whenever enrichment is used.
 - Implementations may merge or split stages across 3-5 agents, but required fields and evidence must remain learner-visible.
+- A single per-customer artifact satisfies Stage 2 when it includes all required scoring + risk fields/evidence.
 
 ## D. Handoff Validation States (Required)
 Use only:
@@ -52,7 +53,8 @@ Use only:
 - Any output labeling 0/1-signal customer as at-risk requires baseline rework.
 
 ## F. Validation and Fallback Gate (Required)
-- Named-customer spot-check must trace one customer row from Stage 1 through Stage 3 (and Stage 5 if used).
+- Customer-index check must validate `agent1-customer-index` has unique `customer_id` + `customer_name` rows.
+- Named-customer spot-check must trace one customer row from Stage 2 through Stage 3 (and Stage 5 if used).
 - Aggregate check must validate Stage 4 tier counts, at-risk counts, and at-risk % by tier.
 - If primary prompt flow is blocked by guardrails, run a documented guardrail-safe fallback path and re-run the same checks.
 

@@ -65,8 +65,7 @@ Use these prompts when learners over-classify:
    - Data ingestion performed via Build -> Data.
    - Agent implementation performed via Build -> Workflows.
 4. **Stage outcome completion evidence**
-   - `stage1_ingest_score`
-   - `stage2_tier_risk`
+   - `agent2-tier-report-{{customer_id}}`
    - `stage3_explain_action`
    - `stage4_portfolio_summary`
    - `stage5_news_enrichment` when enrichment is used

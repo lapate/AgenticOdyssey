@@ -21,7 +21,7 @@ Core learning boundary:
 | Phase | Outcome artifact |
 |---|---|
 | Copilot Studio | Built/configured Copilot Studio baseline artifact + conversational at-risk explanation/action outputs |
-| Foundry | Architecture-agnostic 3-5 agent workflow producing stage artifacts (`stage1_ingest_score`..`stage4_portfolio_summary`, optional `stage5_news_enrichment`) with 2+ signal rule alignment |
+| Foundry | Architecture-agnostic 3-5 agent workflow producing stage artifacts (`agent2-tier-report-{{customer_id}}`, `stage3_explain_action`, `stage4_portfolio_summary`, optional `stage5_news_enrichment`) with 2+ signal rule alignment |
 | Agent Framework | Built/configured Agent Framework baseline alert workflow + proactive explain-only alerts |
 
 ## Run Sequence (Use This Order)
@@ -46,8 +46,8 @@ Core learning boundary:
 
 ## Foundry Progress and Iteration (FR-015..FR-020)
 Use this checklist during Foundry execution:
-1. `stage1_ingest_score` complete with scoring fields and source-lineage evidence.
-2. `stage2_tier_risk` complete with tier/risk fields and risk-gate evidence (`negative_signal_count >= 2 => at_risk`).
+1. `agent2-tier-report-{{customer_id}}` complete with RFM + tier/risk fields and source-lineage evidence.
+2. Risk-gate evidence is present in `agent2-tier-report-{{customer_id}}` (`negative_signal_count >= 2 => at_risk`).
 3. `stage3_explain_action` complete with plain-language explanation and mapped action.
 4. `stage4_portfolio_summary` complete with tier counts, at-risk counts, at-risk % by tier.
 5. `stage5_news_enrichment` complete when used, with scope evidence (`news_dataset_name` = `synthetic_regional_news_24m`, `scope_window_months` = 24).

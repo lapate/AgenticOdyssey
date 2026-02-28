@@ -117,7 +117,7 @@ If your tenant labels differ slightly, follow the intent of each step.
 
 ## Foundry Parity Note
 - Copilot Studio outputs should align with Foundry stage outcomes:
-  - identification parity with `stage2_tier_risk`,
+  - identification parity with `agent2-tier-report-{{customer_id}}`,
   - explanation/action parity with `stage3_explain_action`,
   - portfolio summary parity with `stage4_portfolio_summary`.
 - Do not assume or require a fixed Foundry topology; parity is outcome-based.

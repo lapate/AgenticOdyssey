@@ -64,7 +64,7 @@ Build/configure a Level 300 Agent Framework alert workflow and run proactive, ex
 
 ## Foundry Contract Parity
 - Use Foundry outputs aligned to stage artifacts (not fixed agent names):
-  - `stage2_tier_risk` for risk gating input,
+  - `agent2-tier-report-{{customer_id}}` for risk gating input,
   - `stage3_explain_action` for explanation/action payload content,
   - `stage4_portfolio_summary` for facilitator summary checks.
 - If enrichment is used, include `stage5_news_enrichment` evidence references in alert rationale notes.
