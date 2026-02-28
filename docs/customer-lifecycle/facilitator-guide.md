@@ -6,15 +6,15 @@
 - Baseline scope: Level 300 only; Level 400 is optional enrichment.
 
 ## Canonical Level Definitions (Use Verbatim)
-- **L100 (foundational orientation):** Understand scenario context, data sources, and shared vocabulary. No pass/fail completion gate.
-- **L200 (intermediate):** Learners should demonstrate intermediate tool fluency before baseline grading.
-- **L300 (advanced hands-on baseline, WWL-aligned):** Advanced hands-on practice that builds on L100 and L200; this is the required workshop exercise level for completion/pass.
-- **L400 (optional complexity):** Extension work that deepens L300 outcomes and is excluded from pass/fail.
+- **L100 (foundational orientation):** Understand scenario context, data sources, and shared vocabulary.
+- **L200 (intermediate):** Learners should demonstrate intermediate tool fluency before core multi-agent baseline work.
+- **L300 (advanced hands-on baseline, WWL-aligned):** Advanced hands-on practice that builds on L100 and L200; this is the required workshop baseline for core learning outcomes and multi-agent pattern mastery.
+- **L400 (optional complexity):** Extension work that deepens L300 outcomes and is optional enrichment after L300.
 
-## Grading Enforcement (L300-Only)
-- Workshop pass/fail is based on **L300 outputs only**.
-- L400 content must not be used as a requirement to pass.
-- If a learner completes all Level 300 outputs in `labs/customer-lifecycle/level-300/output-contract.md`, mark baseline as pass.
+## Learning Outcome Enforcement (L300 Core)
+- Workshop core-learning completion is based on **L300 outputs only**.
+- L400 content must not be used as a requirement for core completion.
+- If a learner completes all Level 300 outputs in `labs/customer-lifecycle/level-300/output-contract.md`, mark core baseline as complete.
 - If any L300 mandatory output is missing, mark baseline as not yet complete.
 - Level 300 completion requires build/configure checkpoints in both Copilot Studio and Agent Framework (not conversation-only execution on prebuilt assets).
 
@@ -22,7 +22,7 @@
 | Phase | Target time | Facilitator checkpoint |
 |---|---:|---|
 | Copilot Studio | <=30 min | Learner built/configured baseline copilot artifacts, then produced at-risk VIP/Gold list with plain-language explanations |
-| Foundry | <=60 min | Learner used New Foundry flow (Build -> Data, Build -> Workflows), produced all 4 agent outputs, and enforced `tier='VIP' AND recency_days > 60` plus 2+ risk gate |
+| Foundry | <=60 min | Learner used New Foundry flow (Build -> Data, Build -> Workflows), produced required stage outcomes with a 3-5 agent topology, and enforced 2+ risk gate |
 | Agent Framework | <=10 min | Learner built/configured alert workflow, then showed explain-only alerts with mapped actions |
 
 ## Timing Rubric
@@ -54,30 +54,45 @@ Use these prompts when learners over-classify:
 - Baseline logic in all phases must match `common/customer-lifecycle/risk-rules.md`.
 
 ## Foundry Assessment Rubric (Required Evidence)
-1. **Portal/auth assumptions verified**
+1. **3-5 agent compliance**
+   - Workflow uses at least 3 and no more than 5 agents.
+   - Topology may vary, but required stage outcomes are present.
+2. **Portal/auth assumptions verified**
    - New Foundry toggle enabled.
    - No Project API key path used.
-2. **Navigation path evidence**
+3. **Navigation path evidence**
    - Optional project creation path shown: Start building -> Design workflow.
    - Data ingestion performed via Build -> Data.
    - Agent implementation performed via Build -> Workflows.
-3. **4-agent completion evidence**
-   - Agent 1 output: `agent1_rfm`
-   - Agent 2 output: `agent2_tier_health`
-   - Agent 3 output: `agent3_vip_recency_alerts` with exact rule text `tier='VIP' AND recency_days > 60`
-   - Agent 4 output: `agent4_news_action_eval` with scope/exception handling
-4. **Threshold consistency enforcement**
-    - Agent 3 threshold evidence field shows 60 days.
-    - Rule text in learner output matches `common/customer-lifecycle/risk-rules.md` exactly.
+4. **Stage outcome completion evidence**
+   - `stage1_ingest_score`
+   - `stage2_tier_risk`
+   - `stage3_explain_action`
+   - `stage4_portfolio_summary`
+   - `stage5_news_enrichment` when enrichment is used
+5. **Risk-gate consistency enforcement**
+   - At-risk classification enforces `negative_signal_count >= 2`.
+   - VIP recency escalation check (`tier='VIP' AND recency_days > 60`) may be implemented in any stage/agent without replacing 2+ gate.
 
-## Foundry Iteration Assessment Rubric (FR-015..FR-019)
-1. **Exact artifact-set enforcement (FR-015)**
-   - Learner progress checks evaluate exactly four artifacts:
-     - `agent1_rfm`
-     - `agent2_tier_health`
-     - `agent3_vip_recency_alerts`
-     - `agent4_news_action_eval`
-   - Each artifact includes required evidence fields from `labs/customer-lifecycle/level-300/output-contract.md`.
+## FR-016..FR-020 Scoring Gates
+| Gate | Pass criteria | Fail signal |
+|---|---|---|
+| FR-016 source-derived validation | Named-customer spot-check and aggregate portfolio check both pass with artifact lineage evidence | Placeholder/generic responses or missing lineage |
+| FR-017 failure handling | Learner correctly applies remediation for `guardrail_blocked`, `placeholder_output`, and `missing_required_fields` | No clear remediation path or wrong rework target |
+| FR-018 completion criteria | Identification, explanation, action, and portfolio summary all present and mapped to stage artifacts | One or more Level 300 outcomes missing |
+| FR-019 architecture agnostic | No fixed topology mandated; submission remains within 3-5 agents and delivers required stages | Requires one topology or falls outside 3-5 |
+| FR-020 fallback parity | At least one guardrail-safe fallback path yields same outcomes/evidence as primary path | Fallback path produces partial/non-equivalent outputs |
+
+## Foundry Remediation Scoring
+Use this scoring lens during walkthroughs:
+- **Pass with confidence:** failure detected, correct remediation applied, recheck passed.
+- **Pass with coaching:** failure detected but remediation needed facilitator hint.
+- **Not yet pass:** remediation skipped, incomplete, or did not restore required evidence.
+## Foundry Iteration Assessment Rubric (FR-015..FR-020)
+1. **Required stage-set enforcement (FR-015)**
+   - Learner progress checks evaluate required stage artifacts from `output-contract.md`.
+   - Stage 5 is required only when enrichment is used.
+   - Each artifact includes required evidence fields.
 2. **Exact status-set enforcement (FR-016)**
    - Rubric uses only `complete`, `incomplete`, and `needs rework`.
    - Any other status wording is marked as rubric drift and requires correction.
@@ -85,8 +100,11 @@ Use these prompts when learners over-classify:
    - Learner demonstrates: check progress -> detect remaining work -> process remaining work -> iterate.
    - At least one explicit decision point is documented when an artifact is `needs rework`.
 4. **Dual stop-condition enforcement (FR-018)**
-   - Pass Foundry only when all four required artifacts are `complete`.
+   - Pass Foundry only when required artifacts are `complete`.
    - Pass Foundry only when outputs cover identification, explanation, action, and portfolio summary.
 5. **Scope-boundary enforcement (FR-019)**
-   - Iteration guidance remains within the existing four-agent Level 300 baseline.
-   - No net-new mandatory agent categories are introduced; optional enhancements are routed to Level 400.
+   - Submission remains within a 3-5 agent topology and is outcome-driven.
+   - Optional enhancements are routed to Level 400.
+6. **Fallback-path parity enforcement (FR-020)**
+   - Learner demonstrates at least one fallback path when primary prompt flow is blocked.
+   - Fallback output parity is confirmed against primary-path Level 300 outcomes.

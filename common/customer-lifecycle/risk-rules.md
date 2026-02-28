@@ -3,13 +3,13 @@
 ## Rule ID
 `RISK-2PLUS-NEGATIVE-SIGNALS`
 
-## Canonical VIP Recency Alert Threshold (Agent 3)
+## Canonical VIP Recency Alert Threshold (Stage-Level Escalation Check)
 - Threshold value: **60 days**.
-- Canonical Agent 3 rule expression: **`tier='VIP' AND recency_days > 60`**.
-- This Agent 3 alert rule is an explicit VIP escalation signal and does not override the baseline at-risk gate (`negative_signal_count >= 2`).
+- Canonical escalation rule expression: **`tier='VIP' AND recency_days > 60`**.
+- This escalation signal does not override the baseline at-risk gate (`negative_signal_count >= 2`).
 
-### Agent 3 Threshold Evidence Fields (Required)
-Every `agent3_vip_recency_alerts` output row must include:
+### Escalation Threshold Evidence Fields (Required)
+Every escalation output row must include:
 - `vip_recency_threshold_days` (=60),
 - `agent3_rule_text` (`tier='VIP' AND recency_days > 60`),
 - `alert_flag` (true/false result of the threshold rule).
@@ -43,3 +43,8 @@ At-risk status requires **two or more** negative signals in the same scoring win
 - `risk_status` (`healthy`, `watch`, `at_risk`)
 - `triggered_signals` (list of signal names)
 - `recommended_action_bundle`
+
+## Guardrail-Safe Remediation Terms
+- `guardrail_blocked` -> move to documented fallback interaction pattern.
+- `placeholder_output` -> rerun with source-only and required-field constraints.
+- `missing_required_fields` -> mark `needs rework`; rerun the failed stage plus downstream dependent stage(s).

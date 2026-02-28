@@ -1,40 +1,38 @@
 # Tasks: customer-lifecycle
 
 ## Phase 1 - Foundation
-- [x] T001 Update Foundry artifact definitions in `labs/customer-lifecycle/level-300/output-contract.md` to require exactly four FR-015 artifacts and explicit evidence fields for each.
-- [x] T002 Update Foundry state model language in `common/customer-lifecycle/signal-dictionary.md` to allow only FR-016 statuses: `complete`, `incomplete`, and `needs rework`.
-- [x] T003 Add/confirm Agent 3 threshold evidence requirements in `common/customer-lifecycle/risk-rules.md` and mirror vocabulary in `common/customer-lifecycle/action-mapping.md` for FR-015/FR-018 parity.
-- [x] T004 Update `.specify/specs/customer-lifecycle/spec.md` clarifications/requirement text as needed so FR-015..FR-019 wording remains canonical and consistent with the updated implementation plan.
+- [x] T001 Update canonical requirement wording in `.specify/specs/customer-lifecycle/spec.md` so FR-013..FR-020 consistently enforce architecture-agnostic outcomes, a strict 3-5 agent solution band, and guardrail-safe fallback expectations.
+- [x] T002 Recast `labs/customer-lifecycle/level-300/output-contract.md` to a stage-based contract (not fixed agent names) with required handoff fields, source-lineage evidence fields, and Level 300 outcome coverage markers.
+- [x] T003 Standardize shared terminology in `common/customer-lifecycle/signal-dictionary.md`, `common/customer-lifecycle/action-mapping.md`, and `common/customer-lifecycle/risk-rules.md` for stage responsibilities, validation states, 2+ signal risk gating, and fallback/remediation terms.
+- [x] T004 Enforce Level 300/Level 400 scope boundaries in `labs/customer-lifecycle/level-400/extensions.md` so topology variants and advanced orchestration experiments are explicitly optional-only and isolated from baseline requirements.
 
 ## Phase 2 - Feature Delivery
-- [x] T005 Rewrite Foundry progress-checkpoint section in `labs/customer-lifecycle/level-300/foundry.md` to enumerate the exact four required artifacts and checklist criteria (FR-015).
-- [x] T006 Rewrite Foundry status-assessment section in `labs/customer-lifecycle/level-300/foundry.md` to use only `complete`, `incomplete`, and `needs rework` with learner-facing definitions (FR-016).
-- [x] T007 Implement the explicit learner iteration loop in `labs/customer-lifecycle/level-300/foundry.md`: check progress -> detect remaining work -> process remaining work -> iterate (FR-017).
-- [x] T008 Implement the dual stop condition in `labs/customer-lifecycle/level-300/foundry.md` requiring both artifact completeness and Level 300 outcome coverage (identification, explanation, action, portfolio summary) (FR-018).
-- [x] T009 Add explicit scope-boundary guardrails in `labs/customer-lifecycle/level-300/foundry.md` and `labs/customer-lifecycle/level-400/extensions.md` to preserve the existing four-agent baseline and prevent net-new mandatory agent categories (FR-019).
-- [x] T010 Mirror FR-015..FR-019 learner execution guidance in `docs/customer-lifecycle/learner-guide.md`, including artifact checklist usage, state transitions, and iteration decisions.
-- [x] T011 Mirror FR-015..FR-019 facilitator assessment rubric in `docs/customer-lifecycle/facilitator-guide.md`, including pass/fail checks for stop conditions and scope-boundary enforcement.
-- [x] T012 Refresh workshop entry-point summary in `README.md` so the top-level Foundry flow reflects the updated iteration loop and stop-condition framing without introducing scope creep.
+- [x] T005 Rewrite `labs/customer-lifecycle/level-300/foundry.md` to define an architecture-agnostic 3-5 agent flow with explicit stage responsibilities, handoff artifacts, and learner-visible checkpoints mapped to Level 300 outcomes.
+- [x] T006 Add guardrail-safe failure handling to `labs/customer-lifecycle/level-300/foundry.md` as a concise decision path for blocked prompts, generic/placeholder outputs, and missing required fields, including targeted rework instructions.
+- [x] T007 Update `labs/customer-lifecycle/level-300/foundry.md` and `labs/customer-lifecycle/level-300/output-contract.md` to preserve FR-014 synthetic news constraints (24-month scope, regional events, fictional company references) as learner-visible evidence requirements.
+- [x] T008 Align `labs/customer-lifecycle/level-300/copilot-studio.md` and `labs/customer-lifecycle/level-300/agent-framework.md` with the revised Foundry outcome contract so adjacent phases stay consistent without introducing fixed topology assumptions.
+- [x] T009 Update `docs/customer-lifecycle/learner-guide.md` with operational primary and fallback Foundry runbooks, including named-customer spot-check and aggregate artifact validation steps.
+- [x] T010 Update `docs/customer-lifecycle/facilitator-guide.md` with scoring rubric gates for FR-016..FR-020, including 3-5 agent compliance, source-derived evidence checks, and failure-mode remediation scoring.
+- [x] T011 Refresh `README.md` so the workshop entry flow describes Foundry as architecture-agnostic within the 3-5 agent band and calls out required validation/fallback expectations.
 
 ## Phase 3 - Validation and Cleanup
-- [x] T013 Update `.specify/specs/customer-lifecycle/traceability.md` with explicit FR-015, FR-016, FR-017, FR-018, and FR-019 mappings to all updated implementation documents.
-- [x] T014 Rewrite `.specify/specs/customer-lifecycle/validation.md` checklist items to validate: exact artifact set, exact status set, explicit iteration loop, dual stop condition, and scope-boundary preservation.
-- [x] T015 Execute document-level validation and record evidence in `.specify/specs/customer-lifecycle/validation.md` by simulating at least one `needs rework` path and confirming loop continuation until all four artifacts are `complete`.
-- [x] T016 Perform final cross-document terminology reconciliation across `labs/customer-lifecycle/level-300/foundry.md`, `labs/customer-lifecycle/level-300/output-contract.md`, `docs/customer-lifecycle/learner-guide.md`, `docs/customer-lifecycle/facilitator-guide.md`, `README.md`, and `.specify/specs/customer-lifecycle/traceability.md`.
+- [x] T012 Update `.specify/specs/customer-lifecycle/traceability.md` with FR-013..FR-020 mappings that reference the revised stage-based contract, guardrail-safe fallback guidance, and Level 300/Level 400 boundary enforcement.
+- [x] T013 Rewrite `.specify/specs/customer-lifecycle/validation.md` checklist criteria to verify architecture-agnostic 3-5 compliance, stage handoff evidence, source-derived spot-check + aggregate checks, and fallback-path parity with primary outcomes.
+- [x] T014 Execute and document validation walkthroughs in `.specify/specs/customer-lifecycle/validation.md` covering: one named-customer check, one aggregate portfolio check, and three failure scenarios (guardrail blocked, placeholder output, missing fields) with remediation outcomes.
+- [x] T015 Run final cross-document parity pass across `labs/customer-lifecycle/level-300/foundry.md`, `labs/customer-lifecycle/level-300/output-contract.md`, `docs/customer-lifecycle/learner-guide.md`, `docs/customer-lifecycle/facilitator-guide.md`, `README.md`, `.specify/specs/customer-lifecycle/traceability.md`, and `.specify/specs/customer-lifecycle/validation.md` to remove terminology drift and confirm consistent acceptance gates.
 
 ## Dependency Notes
 - T002 depends on T001.
-- T003 depends on T001 and T002.
-- T004 depends on T001, T002, and T003.
-- T005 depends on T001 and T004.
-- T006 depends on T002 and T005.
-- T007 depends on T005 and T006.
-- T008 depends on T001 and T007.
-- T009 depends on T003 and T008.
-- T010 depends on T005, T006, T007, T008, and T009.
-- T011 depends on T005, T006, T007, T008, T009, and T010.
-- T012 depends on T007, T008, and T009.
-- T013 depends on T010, T011, and T012.
-- T014 depends on T005, T006, T007, T008, T009, T010, T011, and T013.
-- T015 depends on T014.
-- T016 depends on T013, T014, and T015.
+- T003 depends on T001.
+- T004 depends on T001.
+- T005 depends on T001, T002, and T003.
+- T006 depends on T005.
+- T007 depends on T002 and T005.
+- T008 depends on T005.
+- T009 depends on T005, T006, and T007.
+- T010 depends on T005, T006, and T007.
+- T011 depends on T005, T009, and T010.
+- T012 depends on T005, T006, T007, T008, T009, T010, and T011.
+- T013 depends on T012.
+- T014 depends on T013.
+- T015 depends on T012, T013, and T014.

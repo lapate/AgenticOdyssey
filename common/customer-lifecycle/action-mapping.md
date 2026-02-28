@@ -28,12 +28,14 @@ Recommended human actions tied to observed risk patterns.
 - Exception rows are excluded from action correlation and must be reported in validation notes.
 
 ## Foundry FR-015/FR-018 Vocabulary Parity
-- Required Level 300 Foundry artifacts are exactly:
-  1. `agent1_rfm`
-  2. `agent2_tier_health`
-  3. `agent3_vip_recency_alerts`
-  4. `agent4_news_action_eval`
+- Required Level 300 Foundry stage outcomes are:
+  1. `stage1_ingest_score`
+  2. `stage2_tier_risk`
+  3. `stage3_explain_action`
+  4. `stage4_portfolio_summary`
+  5. `stage5_news_enrichment` (optional stage outcome when enrichment is used)
+- Architecture is topology-flexible, but implementation must stay within **3-5 agents** and preserve required stage outcomes.
 - Artifact status terms must use only: `complete`, `incomplete`, `needs rework`.
 - Foundry stop condition language must require both:
-  - all four artifacts are `complete`, and
-  - outputs cover identification, explanation, action, and portfolio summary.
+  - required stage outcomes are `complete`, and
+  - outputs cover identification, explanation, action, and portfolio summary with source-derived evidence.

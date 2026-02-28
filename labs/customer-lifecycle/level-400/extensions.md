@@ -1,8 +1,8 @@
 # Level 400 Optional Complexity Extensions
 
-> **L400 Optional Only:** These activities are complexity extensions and are explicitly outside workshop pass/fail.
+> **L400 Optional Only:** These activities are complexity extensions and are explicitly outside core learning completion requirements.
 >
-> **Do not gate completion on this file.** Workshop pass/fail is determined by Level 300 only.
+> **Do not gate completion on this file.** Core learning completion is determined by Level 300 only.
 
 ## How to Use This File
 1. Complete all Level 300 outputs first (`labs/customer-lifecycle/level-300/output-contract.md`).
@@ -86,11 +86,11 @@ Test whether different tiers should use different negative-signal thresholds whi
 
 ### Expected Output
 - Side-by-side comparison between baseline and each threshold policy.
-- Recommendation memo that keeps baseline rule as default for workshop grading.
+- Recommendation memo that keeps baseline rule as the default for core learning comparisons.
 
 ### Success Criteria
 - Analysis is clearly marked exploratory (not production policy).
-- Baseline Level 300 outputs remain the grading source of truth.
+- Baseline Level 300 outputs remain the core source of truth.
 
 ## Extension Candidate D - Agent Escalation Workflow
 ### Objective
@@ -107,7 +107,7 @@ Add optional escalation logic for severe deterioration (3+ signals) without enab
 
 ### Success Criteria
 - Escalation is additive and explain-only.
-- Level 300 pass/fail remains unaffected.
+- Level 300 core learning boundary remains unaffected.
 
 ## Extension Candidate E - Offer Recommendation Playbooks
 ### Objective
@@ -149,6 +149,6 @@ Expand the synthetic news model so students can test richer event-behavior corre
 - Do not replace baseline `RISK-2PLUS-NEGATIVE-SIGNALS`.
 - Keep Level 300 artifacts independently completable.
 - Keep extension artifacts in separate sections/files and label them `Level 400 Optional`.
-- Do not require any Level 400 outcome for workshop pass/fail.
-- Do not introduce net-new mandatory agent categories; the Level 300 baseline remains the existing four-agent flow.
+- Do not require any Level 400 outcome for core learning completion.
+- Topology variants and advanced orchestration experiments are allowed only as optional extensions and must not redefine Level 300’s architecture-agnostic 3-5 agent contract.
 - Every extension submission must include both the technical build artifact and the Business SME readout.

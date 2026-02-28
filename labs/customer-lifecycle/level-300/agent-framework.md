@@ -7,6 +7,7 @@ Build/configure a Level 300 Agent Framework alert workflow and run proactive, ex
 - Level 300 scoring outputs from Foundry lab
 - `common/customer-lifecycle/risk-rules.md`
 - `common/customer-lifecycle/action-mapping.md`
+- `labs/customer-lifecycle/level-300/output-contract.md` (stage-based contract parity)
 
 ## Step-by-Step (Navigate / Click / Type)
 1. Open Agent Framework workspace.
@@ -58,8 +59,15 @@ Build/configure a Level 300 Agent Framework alert workflow and run proactive, ex
    - **Verify:** Output aligns to `labs/customer-lifecycle/level-300/output-contract.md`.
 
 8. Save evidence for facilitator.
-   - **Click:** Export/copy workflow configuration summary and run output.
-   - **Type:** Record final check: `L300 complete; L400 not required for pass/fail.`
+    - **Click:** Export/copy workflow configuration summary and run output.
+    - **Type:** Record final check: `L300 core outcomes complete; L400 optional enrichment only.`
+
+## Foundry Contract Parity
+- Use Foundry outputs aligned to stage artifacts (not fixed agent names):
+  - `stage2_tier_risk` for risk gating input,
+  - `stage3_explain_action` for explanation/action payload content,
+  - `stage4_portfolio_summary` for facilitator summary checks.
+- If enrichment is used, include `stage5_news_enrichment` evidence references in alert rationale notes.
 
 ## Timebox Guidance
 1. **0-3 min:** Build workflow shell and input mapping.
@@ -70,4 +78,4 @@ Build/configure a Level 300 Agent Framework alert workflow and run proactive, ex
 - Level 300 requires workflow build/configuration before demo execution (not conversation-only use of prebuilt flow).
 - Alerts are explain-only (no autonomous customer contact).
 - One-signal customers stay in watch status; no at-risk alert.
-- Level 300 completion is sufficient for pass/fail; L400 is optional.
+- Level 300 completion is sufficient for core learning; L400 is optional enrichment.

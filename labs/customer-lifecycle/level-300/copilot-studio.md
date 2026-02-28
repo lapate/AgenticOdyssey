@@ -18,6 +18,7 @@ Build/configure a Copilot Studio artifact, then use it to deliver baseline outpu
 ## Required Inputs
 - `data/Zava Sales Data - FY2024-2026.xlsx`
 - Facilitator-provided lifecycle definitions and output checklist
+- `labs/customer-lifecycle/level-300/output-contract.md` (for stage outcome parity with Foundry)
 
 ## Preview UI Note (Important)
 Use these UI anchors for this lab:
@@ -113,3 +114,10 @@ If your tenant labels differ slightly, follow the intent of each step.
       4. portfolio summary metrics,
       5. 0/1/2/3+ boundary check.
     - **Verify:** You can locate each required output in Activity-backed conversation history.
+
+## Foundry Parity Note
+- Copilot Studio outputs should align with Foundry stage outcomes:
+  - identification parity with `stage2_tier_risk`,
+  - explanation/action parity with `stage3_explain_action`,
+  - portfolio summary parity with `stage4_portfolio_summary`.
+- Do not assume or require a fixed Foundry topology; parity is outcome-based.

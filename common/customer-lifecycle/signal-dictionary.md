@@ -2,12 +2,12 @@
 
 Shared vocabulary for all customer-lifecycle labs and guides.
 
-## Canonical Learning Levels and Pass/Fail Boundary
-- **L100 (foundational orientation):** Understand scenario context, data sources, and shared vocabulary. No pass/fail completion gate.
-- **L200 (intermediate):** Build practical familiarity with tooling and transformation patterns before baseline grading.
-- **L300 (advanced hands-on baseline, WWL-aligned):** Advanced hands-on practice that builds on L100 and L200; this is the required workshop exercise level for completion/pass.
-- **L400 (optional complexity):** Extension work that deepens L300 outcomes and is excluded from pass/fail.
-- **Workshop pass/fail boundary:** **L300 is required for pass. L400 is optional and must not affect pass/fail.**
+## Canonical Learning Levels and Core Learning Boundary
+- **L100 (foundational orientation):** Understand scenario context, data sources, and shared vocabulary.
+- **L200 (intermediate):** Build practical familiarity with tooling and transformation patterns before the core multi-agent baseline.
+- **L300 (advanced hands-on baseline, WWL-aligned):** Advanced hands-on practice that builds on L100 and L200; this is the required workshop baseline for learning outcomes and multi-agent pattern mastery.
+- **L400 (optional complexity):** Extension work that deepens L300 outcomes and is optional enrichment after L300.
+- **Workshop core-learning boundary:** **L300 defines core learning completion. L400 is optional and must not block core completion.**
 - **Canonical pathing:** `labs/customer-lifecycle/level-300/` is the required baseline path; `labs/customer-lifecycle/level-400/` is the optional complexity path for after-class extensions.
 
 ## Standard Terms
@@ -18,21 +18,34 @@ Shared vocabulary for all customer-lifecycle labs and guides.
 | Tiers | Customer value segments: VIP, Gold, Silver, Bronze. |
 | Actions | Recommended human follow-up steps to reduce retention risk. |
 
-## Foundry 4-Agent Terminology (Level 300)
-| Agent | Canonical name | Required output/handoff |
+## Foundry Stage Terminology (Level 300, Architecture-Agnostic)
+| Stage | Responsibility | Required output/handoff |
 |---|---|---|
-| Agent 1 | RFM scoring | `agent1_rfm` with `recency_days`, `frequency_90d`, `monetary_90d` |
-| Agent 2 | Tier + health scoring | `agent2_tier_health` with `tier`, health indicators, `negative_signal_count`, `risk_status` |
-| Agent 3 | VIP recency threshold alert | `agent3_vip_recency_alerts` using `tier='VIP' AND recency_days > 60`, including threshold evidence field |
-| Agent 4 | News-based action evaluation | `agent4_news_action_eval` with event-scoped rationale and action recommendation |
+| Stage 1 | Ingest + score | `stage1_ingest_score` with `recency_days`, `frequency_90d`, `monetary_90d` |
+| Stage 2 | Tier + risk classification | `stage2_tier_risk` with `tier`, `negative_signal_count`, `risk_status`, `triggered_signals` |
+| Stage 3 | Explanation + action mapping | `stage3_explain_action` with explanation/action fields linked to Stage 2 |
+| Stage 4 | Portfolio summary | `stage4_portfolio_summary` with tier counts, at-risk counts, and at-risk % by tier |
+| Stage 5 (optional) | Synthetic news enrichment | `stage5_news_enrichment` with event scope and action-context evidence |
+
+Topology rule:
+- Learners may implement these outcomes with any **3-5 agent** workflow.
+- Stage outcomes are mandatory; fixed agent names are not mandatory.
 
 ## Foundry Artifact Status Model (FR-016)
-Use only these statuses when assessing each of the four required Foundry artifacts:
+Use only these statuses when assessing required Foundry stage artifacts:
 - `complete`: artifact exists and passes its checklist criteria.
 - `incomplete`: artifact is missing or not yet run.
 - `needs rework`: artifact exists but fails one or more checklist criteria.
 
 No other status values are allowed in Level 300 Foundry progress checkpoints.
+
+## Foundry Failure/Remediation Terms (FR-017, FR-020)
+Use these terms consistently in learner and facilitator documents:
+- `guardrail_blocked` -> primary prompt pattern blocked by tenant guardrails.
+- `placeholder_output` -> output is generic/example-like and not source-derived.
+- `missing_required_fields` -> one or more required handoff fields absent.
+- `fallback_path_primary_to_artifact_first` -> switch from blocked chat prompt to artifact-first/stage-by-stage execution.
+- `targeted_stage_rework` -> rerun only the failed stage and downstream dependents.
 
 ## Signal Definitions (Learner Visible)
 | Signal | What it measures | Negative condition (counts toward risk) | Why it matters |
