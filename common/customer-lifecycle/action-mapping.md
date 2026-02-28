@@ -26,3 +26,14 @@ Recommended human actions tied to observed risk patterns.
   - `exception_malformed_date`
   - `exception_stale_record`
 - Exception rows are excluded from action correlation and must be reported in validation notes.
+
+## Foundry FR-015/FR-018 Vocabulary Parity
+- Required Level 300 Foundry artifacts are exactly:
+  1. `agent1_rfm`
+  2. `agent2_tier_health`
+  3. `agent3_vip_recency_alerts`
+  4. `agent4_news_action_eval`
+- Artifact status terms must use only: `complete`, `incomplete`, `needs rework`.
+- Foundry stop condition language must require both:
+  - all four artifacts are `complete`, and
+  - outputs cover identification, explanation, action, and portfolio summary.

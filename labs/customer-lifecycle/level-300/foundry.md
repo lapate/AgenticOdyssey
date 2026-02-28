@@ -153,6 +153,44 @@ Build a four-agent Foundry workflow that turns raw sales data into business-read
    - **Click:** Persist/export `agent2_tier_health`, `agent3_vip_recency_alerts`, and final output table.
    - **Verify:** Outputs are ready for the downstream Agent Framework lab.
 
+## Foundry Progress Checkpoints (FR-015)
+Evaluate exactly these four required artifacts:
+
+| Required artifact | Checklist criteria |
+|---|---|
+| `agent1_rfm` | Exists; includes `customer_id`, `recency_days`, `frequency_90d`, `monetary_90d`; includes `rfm_window_days` and `rfm_run_timestamp`. |
+| `agent2_tier_health` | Exists; includes `customer_id`, `tier`, `negative_signal_count`, `risk_status`, `triggered_signals`; includes `risk_gate_rule_text`. |
+| `agent3_vip_recency_alerts` | Exists; includes `customer_id`, `tier`, `recency_days`, `alert_flag`; includes threshold evidence `vip_recency_threshold_days` (=60) and `agent3_rule_text` (`tier='VIP' AND recency_days > 60`). |
+| `agent4_news_action_eval` | Exists; includes `customer_id`, `event_id`, `event_scope_status`, `action_recommendation`, `action_rationale`; includes `news_dataset_name` (`synthetic_regional_news_24m`) and `scope_window_months` (24). |
+
+## Status Assessment (FR-016)
+Use only these statuses per required artifact:
+- `complete`: artifact exists and passes all checklist criteria.
+- `incomplete`: artifact missing or not yet run.
+- `needs rework`: artifact exists but fails one or more checklist criteria.
+
+## Learner Iteration Loop (FR-017)
+1. Check progress for the four required artifacts.
+2. Detect remaining work by identifying any artifact marked `incomplete` or `needs rework`.
+3. Process remaining work:
+   - build/run missing artifacts for `incomplete`,
+   - fix checklist failures for `needs rework`.
+4. Iterate by repeating Steps 1-3 until all four artifacts are `complete`.
+
+## Stop Condition (FR-018)
+Stop Foundry iteration only when both conditions are true:
+1. All four required artifacts are marked `complete`.
+2. Final outputs cover all Level 300 outcomes:
+   - identification (at-risk VIP/Gold list),
+   - explanation (plain-language risk rationale),
+   - action (recommended human action),
+   - portfolio summary (tier counts, at-risk counts, at-risk % by tier).
+
+## Scope-Boundary Guardrail (FR-019)
+- These iteration checkpoints improve completion quality for the existing four-agent Level 300 baseline only.
+- Do not add net-new mandatory agent categories to satisfy Foundry completion.
+- Route optional enhancements to `labs/customer-lifecycle/level-400/extensions.md`.
+
 ## Timebox Guidance
 1. **0-10 min:** Ingest source + create orchestration artifact.
 2. **10-25 min:** Build Agent 1 and Agent 2.
@@ -161,4 +199,4 @@ Build a four-agent Foundry workflow that turns raw sales data into business-read
 5. **50-60 min:** Final output assembly + boundary validation.
 
 ## Scope-Cut Rule
-If time runs short, keep Agents 1-3 and baseline outputs in class, then move deeper Agent 4 expansion to the after-class extensions backlog (do not delete).
+If time runs short, keep the four required Level 300 artifacts in class for pass/fail, then move deeper non-essential expansion work to the after-class extensions backlog (do not delete).

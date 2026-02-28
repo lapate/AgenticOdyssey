@@ -44,6 +44,31 @@ Pass/fail boundary:
   3. Agent orchestration: **Build -> Workflows** (run all 4 agents with handoff chain).
 - Agent 4 must enforce synthetic news scope and exception handling (missing region, non-fictional company, malformed date, stale record).
 
+## Foundry Progress and Iteration (FR-015..FR-019)
+Use this checklist during Foundry execution:
+1. `agent1_rfm` complete with RFM fields and run evidence (`rfm_window_days`, `rfm_run_timestamp`).
+2. `agent2_tier_health` complete with tier/health fields and risk-gate evidence (`risk_gate_rule_text`).
+3. `agent3_vip_recency_alerts` complete with threshold evidence (`vip_recency_threshold_days` = 60, `agent3_rule_text`).
+4. `agent4_news_action_eval` complete with scope evidence (`news_dataset_name` = `synthetic_regional_news_24m`, `scope_window_months` = 24).
+
+Artifact status transitions (use only these):
+- `incomplete` -> artifact missing or not run yet.
+- `needs rework` -> artifact exists but fails checklist criteria.
+- `complete` -> artifact exists and passes checklist criteria.
+
+Iteration decisions:
+1. Check progress.
+2. Detect remaining work (`incomplete` or `needs rework`).
+3. Process remaining work.
+4. Iterate until all four artifacts are `complete`.
+
+Stop only when both are true:
+- all four required artifacts are `complete`, and
+- your outputs cover identification, explanation, action, and portfolio summary.
+
+Scope guardrail:
+- Keep this within the existing four-agent Level 300 baseline; do not add net-new mandatory agent categories.
+
 ## Baseline Rule You Must Follow
 - Count negative lifecycle signals per customer.
 - `2+` negative signals => `at_risk`

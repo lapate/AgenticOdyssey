@@ -8,6 +8,14 @@
 - Canonical Agent 3 rule expression: **`tier='VIP' AND recency_days > 60`**.
 - This Agent 3 alert rule is an explicit VIP escalation signal and does not override the baseline at-risk gate (`negative_signal_count >= 2`).
 
+### Agent 3 Threshold Evidence Fields (Required)
+Every `agent3_vip_recency_alerts` output row must include:
+- `vip_recency_threshold_days` (=60),
+- `agent3_rule_text` (`tier='VIP' AND recency_days > 60`),
+- `alert_flag` (true/false result of the threshold rule).
+
+These fields are required evidence that the threshold check was applied as documented.
+
 ## Baseline Classification Contract (Level 300)
 1. Evaluate all five lifecycle signals: recency, frequency, spend, margin, and mix.
 2. Mark each signal as `negative` or `not negative`.

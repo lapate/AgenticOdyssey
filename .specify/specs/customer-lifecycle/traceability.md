@@ -17,6 +17,11 @@
 | FR-012 scope cuts deferred to Level 400 (not deleted) | `docs/customer-lifecycle/learner-guide.md`, `docs/customer-lifecycle/facilitator-guide.md`, `labs/customer-lifecycle/level-400/extensions.md` |
 | FR-013 Foundry four-agent workflow (RFM, tier/health, VIP recency alert, news evaluation) | `labs/customer-lifecycle/level-300/foundry.md`, `labs/customer-lifecycle/level-300/output-contract.md`, `common/customer-lifecycle/risk-rules.md`, `docs/customer-lifecycle/learner-guide.md`, `docs/customer-lifecycle/facilitator-guide.md` |
 | FR-014 synthetic news input scope (24 months + regional events + fictional companies) | `labs/customer-lifecycle/level-300/foundry.md`, `common/customer-lifecycle/signal-dictionary.md`, `common/customer-lifecycle/action-mapping.md`, `labs/customer-lifecycle/level-400/extensions.md` |
+| FR-015 exact four Foundry progress artifacts + checklist criteria | `labs/customer-lifecycle/level-300/foundry.md`, `labs/customer-lifecycle/level-300/output-contract.md`, `docs/customer-lifecycle/learner-guide.md`, `docs/customer-lifecycle/facilitator-guide.md`, `README.md` |
+| FR-016 Foundry status set limited to `complete`, `incomplete`, `needs rework` | `common/customer-lifecycle/signal-dictionary.md`, `labs/customer-lifecycle/level-300/foundry.md`, `docs/customer-lifecycle/learner-guide.md`, `docs/customer-lifecycle/facilitator-guide.md` |
+| FR-017 explicit loop: check progress -> detect remaining work -> process remaining work -> iterate | `labs/customer-lifecycle/level-300/foundry.md`, `docs/customer-lifecycle/learner-guide.md`, `README.md`, `.specify/specs/customer-lifecycle/spec.md` |
+| FR-018 dual Foundry stop condition (artifact completeness + Level 300 outcome coverage) | `labs/customer-lifecycle/level-300/foundry.md`, `common/customer-lifecycle/action-mapping.md`, `docs/customer-lifecycle/learner-guide.md`, `docs/customer-lifecycle/facilitator-guide.md`, `README.md` |
+| FR-019 preserve four-agent baseline and prohibit net-new mandatory agent categories | `labs/customer-lifecycle/level-300/foundry.md`, `labs/customer-lifecycle/level-400/extensions.md`, `docs/customer-lifecycle/learner-guide.md`, `docs/customer-lifecycle/facilitator-guide.md`, `.specify/specs/customer-lifecycle/spec.md` |
 
 ## NFR Mapping
 | Requirement | Implementation mapping |

@@ -1,51 +1,35 @@
 # Validation Checklist and Evidence Record
 
-## T011 - Foundry Navigation/Auth Checklist Coverage
+## FR-015..FR-019 Validation Checklist
 | Check | Status | Evidence |
 |---|---|---|
-| New Foundry toggle check exists in Foundry lab | Pass | `labs/customer-lifecycle/level-300/foundry.md` Step 1 |
-| "No Project API key" path is explicitly documented | Pass | `labs/customer-lifecycle/level-300/foundry.md` Portal Assumptions + Step 3 |
-| Build -> Data steps are explicitly present | Pass | `labs/customer-lifecycle/level-300/foundry.md` Steps 5-6 |
-| Build -> Workflows steps are explicitly present | Pass | `labs/customer-lifecycle/level-300/foundry.md` Steps 4, 7-16 |
+| Exact artifact set is defined as only `agent1_rfm`, `agent2_tier_health`, `agent3_vip_recency_alerts`, `agent4_news_action_eval` | Pass | `labs/customer-lifecycle/level-300/foundry.md` (Foundry Progress Checkpoints), `labs/customer-lifecycle/level-300/output-contract.md` (FR-015 Artifact Contract) |
+| Exact status set is limited to `complete`, `incomplete`, `needs rework` | Pass | `common/customer-lifecycle/signal-dictionary.md` (Foundry Artifact Status Model), `labs/customer-lifecycle/level-300/foundry.md` (Status Assessment), `docs/customer-lifecycle/learner-guide.md` |
+| Iteration loop is explicit: check progress -> detect remaining work -> process remaining work -> iterate | Pass | `labs/customer-lifecycle/level-300/foundry.md` (Learner Iteration Loop), `docs/customer-lifecycle/learner-guide.md`, `README.md` |
+| Stop condition is dual: all four artifacts complete + Level 300 outcomes covered | Pass | `labs/customer-lifecycle/level-300/foundry.md` (Stop Condition), `docs/customer-lifecycle/facilitator-guide.md` (Iteration rubric), `README.md` |
+| Scope boundary is preserved (no net-new mandatory agent categories) | Pass | `labs/customer-lifecycle/level-300/foundry.md` (Scope-Boundary Guardrail), `labs/customer-lifecycle/level-400/extensions.md` (Isolation and Governance Rules), `.specify/specs/customer-lifecycle/spec.md` (Clarifications) |
 
-## T012 - 4-Agent Sequencing + Recency Threshold Validation
-Artifacts checked:
-- `common/customer-lifecycle/risk-rules.md`
-- `labs/customer-lifecycle/level-300/foundry.md`
-- `labs/customer-lifecycle/level-300/output-contract.md`
-- `docs/customer-lifecycle/facilitator-guide.md`
+## Simulated `needs rework` Iteration Evidence (T015)
+Scenario: learner run where Agent 3 output exists but fails threshold evidence checklist.
 
-| Validation point | Status | Findings |
-|---|---|---|
-| Four Foundry agents are documented in sequence | Pass | Foundry Goal + Steps 8-12 + Step 13 handoff chain |
-| Agent handoff mapping is explicit | Pass | Foundry Step 13 and output-contract Foundry handoff table |
-| Agent 3 uses same threshold text as risk rules | Pass | Exact text `tier='VIP' AND recency_days > 60` appears in both files |
-| Agent 3 threshold evidence is required in outputs | Pass | `output-contract.md` requires `vip_recency_threshold_days` + `agent3_rule_text` |
-
-## T013 - Synthetic News Scope + Exception Coverage Validation
-Artifacts checked:
-- `common/customer-lifecycle/signal-dictionary.md`
-- `common/customer-lifecycle/action-mapping.md`
-- `labs/customer-lifecycle/level-300/foundry.md`
-
-| Validation point | Status | Findings |
-|---|---|---|
-| Dataset name is canonical (`synthetic_regional_news_24m`) | Pass | Present in all three artifacts |
-| Scope constrained to last 24 months | Pass | Present in all three artifacts |
-| Regional events + fictional-company references required | Pass | Present in Foundry guidance + common docs |
-| Exception handling covers required paths | Pass | Missing region, non-fictional company, malformed date, stale record documented and excluded from correlation |
-
-## T014 - Cross-Doc Consistency Validation
-Artifacts checked:
-- `README.md`
-- `docs/customer-lifecycle/learner-guide.md`
-- `docs/customer-lifecycle/facilitator-guide.md`
-- `.specify/specs/customer-lifecycle/traceability.md`
-
-| Validation point | Status | Findings |
-|---|---|---|
-| New Foundry assumptions trace from README/guides to Foundry lab | Pass | Guides and traceability point to Foundry navigation/auth assumptions |
-| Build -> Data and Build -> Workflows expectations are mirrored in guides | Pass | Learner/facilitator include explicit navigation checkpoints |
-| 4-agent workflow and threshold checks are traceable end-to-end | Pass | Traceability FR-013/FR-014 mappings and facilitator rubric enforce completion evidence |
+1. **Initial progress check**
+   - `agent1_rfm` = `complete`
+   - `agent2_tier_health` = `complete`
+   - `agent3_vip_recency_alerts` = `needs rework` (missing `agent3_rule_text`)
+   - `agent4_news_action_eval` = `incomplete`
+2. **Remaining work detection**
+   - Remaining work exists because one artifact is `needs rework` and one is `incomplete`.
+3. **Process remaining work**
+   - Re-run/fix Agent 3 to include both `vip_recency_threshold_days` (=60) and `agent3_rule_text` (`tier='VIP' AND recency_days > 60`).
+   - Complete Agent 4 output with required scope evidence (`news_dataset_name`, `scope_window_months`).
+4. **Iteration re-check**
+   - `agent1_rfm` = `complete`
+   - `agent2_tier_health` = `complete`
+   - `agent3_vip_recency_alerts` = `complete`
+   - `agent4_news_action_eval` = `complete`
+5. **Stop-condition verification**
+   - Artifact completeness condition met: all four `complete`.
+   - Outcome coverage condition met: identification, explanation, action, and portfolio summary are all present.
+   - Loop may stop.
 
 Remediation items: None.

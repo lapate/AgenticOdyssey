@@ -67,5 +67,26 @@ Use these prompts when learners over-classify:
    - Agent 3 output: `agent3_vip_recency_alerts` with exact rule text `tier='VIP' AND recency_days > 60`
    - Agent 4 output: `agent4_news_action_eval` with scope/exception handling
 4. **Threshold consistency enforcement**
-   - Agent 3 threshold evidence field shows 60 days.
-   - Rule text in learner output matches `common/customer-lifecycle/risk-rules.md` exactly.
+    - Agent 3 threshold evidence field shows 60 days.
+    - Rule text in learner output matches `common/customer-lifecycle/risk-rules.md` exactly.
+
+## Foundry Iteration Assessment Rubric (FR-015..FR-019)
+1. **Exact artifact-set enforcement (FR-015)**
+   - Learner progress checks evaluate exactly four artifacts:
+     - `agent1_rfm`
+     - `agent2_tier_health`
+     - `agent3_vip_recency_alerts`
+     - `agent4_news_action_eval`
+   - Each artifact includes required evidence fields from `labs/customer-lifecycle/level-300/output-contract.md`.
+2. **Exact status-set enforcement (FR-016)**
+   - Rubric uses only `complete`, `incomplete`, and `needs rework`.
+   - Any other status wording is marked as rubric drift and requires correction.
+3. **Iteration loop enforcement (FR-017)**
+   - Learner demonstrates: check progress -> detect remaining work -> process remaining work -> iterate.
+   - At least one explicit decision point is documented when an artifact is `needs rework`.
+4. **Dual stop-condition enforcement (FR-018)**
+   - Pass Foundry only when all four required artifacts are `complete`.
+   - Pass Foundry only when outputs cover identification, explanation, action, and portfolio summary.
+5. **Scope-boundary enforcement (FR-019)**
+   - Iteration guidance remains within the existing four-agent Level 300 baseline.
+   - No net-new mandatory agent categories are introduced; optional enhancements are routed to Level 400.

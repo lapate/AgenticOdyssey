@@ -26,6 +26,14 @@ Shared vocabulary for all customer-lifecycle labs and guides.
 | Agent 3 | VIP recency threshold alert | `agent3_vip_recency_alerts` using `tier='VIP' AND recency_days > 60`, including threshold evidence field |
 | Agent 4 | News-based action evaluation | `agent4_news_action_eval` with event-scoped rationale and action recommendation |
 
+## Foundry Artifact Status Model (FR-016)
+Use only these statuses when assessing each of the four required Foundry artifacts:
+- `complete`: artifact exists and passes its checklist criteria.
+- `incomplete`: artifact is missing or not yet run.
+- `needs rework`: artifact exists but fails one or more checklist criteria.
+
+No other status values are allowed in Level 300 Foundry progress checkpoints.
+
 ## Signal Definitions (Learner Visible)
 | Signal | What it measures | Negative condition (counts toward risk) | Why it matters |
 |---|---|---|---|

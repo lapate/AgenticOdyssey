@@ -24,13 +24,15 @@ For each at-risk VIP/Gold customer:
 4. Plain-language explanation of risk drivers
 5. Mapped human action (from action mapping matrix)
 
-## C. Foundry 4-Agent Handoff Outputs (Required)
-| Agent | Required artifact | Required fields |
-|---|---|---|
-| Agent 1 (RFM) | `agent1_rfm` | `customer_id`, `recency_days`, `frequency_90d`, `monetary_90d` |
-| Agent 2 (Tier + health) | `agent2_tier_health` | `customer_id`, `tier`, `negative_signal_count`, `risk_status`, `triggered_signals` |
-| Agent 3 (VIP threshold alert) | `agent3_vip_recency_alerts` | `customer_id`, `tier`, `recency_days`, `vip_recency_threshold_days` (=60), `agent3_rule_text` (`tier='VIP' AND recency_days > 60`), `alert_flag` |
-| Agent 4 (News action eval) | `agent4_news_action_eval` | `customer_id`, `event_id`, `event_date`, `region`, `event_scope_status`, `action_recommendation`, `action_rationale` |
+## C. Foundry FR-015 Artifact Contract (Exactly Four Required)
+| Agent | Required artifact (must exist) | Required fields | Required evidence fields |
+|---|---|---|---|
+| Agent 1 (RFM) | `agent1_rfm` | `customer_id`, `recency_days`, `frequency_90d`, `monetary_90d` | `rfm_window_days` (90), `rfm_run_timestamp` |
+| Agent 2 (Tier + health) | `agent2_tier_health` | `customer_id`, `tier`, `negative_signal_count`, `risk_status`, `triggered_signals` | `risk_gate_rule_text` (`negative_signal_count >= 2 => at_risk`), `tiering_method_note` |
+| Agent 3 (VIP threshold alert) | `agent3_vip_recency_alerts` | `customer_id`, `tier`, `recency_days`, `vip_recency_threshold_days`, `agent3_rule_text`, `alert_flag` | `vip_recency_threshold_days` (=60), `agent3_rule_text` (`tier='VIP' AND recency_days > 60`) |
+| Agent 4 (News action eval) | `agent4_news_action_eval` | `customer_id`, `event_id`, `event_date`, `region`, `event_scope_status`, `action_recommendation`, `action_rationale` | `news_dataset_name` (`synthetic_regional_news_24m`), `scope_window_months` (24) |
+
+Only these four artifacts are required for Foundry baseline completion. No additional artifact category is mandatory for Level 300 pass/fail.
 
 ## D. Rule Enforcement (Required)
 - A customer with 0 signals: `healthy`

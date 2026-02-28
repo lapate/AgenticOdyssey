@@ -14,7 +14,7 @@ This repository contains a workshop scenario for identifying early lifecycle ris
 ## Workshop Demo Flow (Start Here)
 Follow this end-to-end order:
 1. **Copilot Studio** (build/configure + conversational insight): build/configure the Level 300 copilot artifacts, then identify at-risk VIP/Gold customers and draft plain-language explanations/actions.
-2. **Foundry** (structured scoring): use New Foundry navigation (**Build -> Data**, **Build -> Workflows**) to run the 4-agent chain, enforce `tier='VIP' AND recency_days > 60`, and keep the 2+ negative-signal at-risk rule.
+2. **Foundry** (structured scoring + iteration control): use New Foundry navigation (**Build -> Data**, **Build -> Workflows**) to run the 4-agent chain, then iterate with **check progress -> detect remaining work -> process remaining work -> iterate** until all four required artifacts are `complete` and outcomes cover identification, explanation, action, and portfolio summary.
 3. **Agent Framework** (build/configure + proactive demo): build/configure the Level 300 alert workflow, then generate explain-only alerts for at-risk VIP/Gold customers.
 
 ## First-Time Onboarding

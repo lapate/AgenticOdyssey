@@ -150,4 +150,5 @@ Expand the synthetic news model so students can test richer event-behavior corre
 - Keep Level 300 artifacts independently completable.
 - Keep extension artifacts in separate sections/files and label them `Level 400 Optional`.
 - Do not require any Level 400 outcome for workshop pass/fail.
+- Do not introduce net-new mandatory agent categories; the Level 300 baseline remains the existing four-agent flow.
 - Every extension submission must include both the technical build artifact and the Business SME readout.
