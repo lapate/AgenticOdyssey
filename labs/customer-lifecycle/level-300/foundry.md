@@ -1,4 +1,4 @@
-# Level 300 Lab: Microsoft Foundry (60 Minutes)
+# Lab: Microsoft Foundry (60 Minutes)
 
 ## Goal
 Build a four-agent Foundry workflow that turns raw sales data into business-ready lifecycle guidance:
@@ -17,17 +17,17 @@ Build a four-agent Foundry workflow that turns raw sales data into business-read
 
 ## Required Inputs
 - `data/Zava Sales Data - FY2024-2026.xlsx`
-- `data/customer-lifecycle/derived-fields.md`
-- `common/customer-lifecycle/signal-dictionary.md`
-- `common/customer-lifecycle/risk-rules.md`
-- `labs/customer-lifecycle/level-300/output-contract.md`
+- Facilitator-provided lifecycle definitions and output checklist
+
+> **Upload note:** In Foundry, upload exported sheet files in Step 3 and create the synthetic news dataset in Step 9.
 
 ## Portal Assumptions (Tenant-Specific)
 - Use the **New Foundry** portal experience for this lab (turn on the New Foundry toggle in the UI).
 - **Project API key authentication is disabled** in this tenant; use signed-in user/project access only.
 - Navigation path assumptions:
   - Optional project creation: **Start building -> Design workflow**.
-  - Data ingestion: **Build -> Data**.
+  - Agent setup: **Build -> Agent**.
+  - Data ingestion: **Build -> Data -> Files**.
   - Agent authoring/orchestration: **Build -> Workflows**.
 
 ## Synthetic News Guidance (for Agent 4)
@@ -56,105 +56,102 @@ Build a four-agent Foundry workflow that turns raw sales data into business-read
    - **Click:** Turn on the **New Foundry** toggle in the page header (if not already on).
    - **Verify:** New Foundry layout is active.
 
-2. (Optional) Create a new workshop project if one does not already exist.
-   - **Click:** **Start building** -> **Design workflow**.
+2. (optional) Project setup.
+   > **Note:** If a workshop project already exists, skip this step and continue to Step 3.
    - **Click:** Create project (if prompted).
-   - **Type:** Name `customer-lifecycle-l300`.
+   - **Type:** Name `customer-lifecycle-workshop`.
    - **Click:** Create and open project.
    - **Verify:** Project opens successfully.
 
-3. Open project and confirm authentication model.
-   - **Click:** Open the workshop project (existing or newly created).
-   - **Verify:** You can access project resources with signed-in user access.
-   - **Verify:** Do **not** configure Project API keys (disabled in this tenant).
+3. Build RFM Agent.
+   - **Click:** **Build** -> **Agent** -> **Create Agent**.
+   - **Type:** Name the agent `agent1-rfm`.
+   - **Type (instructions):** `Create one output row per customer_id with recency_days, frequency_90d, and monetary_90d using the uploaded files. Use recency as days since most recent purchase date. Use 90-day windows for frequency and monetary.`
+   - **Click:** **Upload files**.
+     - **Type/Select:** Drag and drop the files in `.\data\exported-sheets\`.
+   - **Click:** **Save** the agent.
+   - **Test (Message the agent...):** `Compute RFM for all customers and return customer_id, recency_days, frequency_90d, and monetary_90d.`
+   - **Verify:** `recency_days`, `frequency_90d`, and `monetary_90d` are present with one row per customer.
 
-4. Create/open the workflow artifact.
+4. Build Tiering Agent.
+   - **Click:** **Build** -> **Agent** -> **Create Agent**.
+   - **Type:** Name the agent `agent2-tier-health`.
+   - **Type (instructions):** `Use Agent 1 RFM output to derive tiers (VIP/Gold/Silver/Bronze) and simple health indicators. Calculate negative_signal_count, triggered_signals, and risk_status using 0=healthy, 1=watch, 2+=at_risk.`
+   - **Click:** **Upload files**.
+     - **Type/Select:** Drag and drop the files in `.\data\exported-sheets\` (if they are not already available in this agent context).
+   - **Click:** **Save** the agent.
+   - **Test (Message the agent...):** `Using RFM input, return customer_id, tier, triggered_signals, negative_signal_count, and risk_status for all customers.`
+   - **Verify:** Tier, signal, and risk-status fields are populated with 0/1/2+ mapping.
+
+5. Build Threshold Agent.
+   - **Click:** **Build** -> **Agent** -> **Create Agent**.
+   - **Type:** Name the agent `agent3-vip-recency-alert`.
+   - **Type (instructions):** `Apply rule tier='VIP' AND recency_days > 60. Add evidence fields vip_recency_threshold_days (=60) and agent3_rule_text (tier='VIP' AND recency_days > 60). Keep baseline risk gate aligned to 2+ negative signals => at_risk.`
+   - **Click:** **Upload files**.
+     - **Type/Select:** Drag and drop the files in `.\data\exported-sheets\` (if they are not already available in this agent context).
+   - **Click:** **Save** the agent.
+   - **Test (Message the agent...):** `Return VIP customers where recency_days > 60 and include customer_id, tier, recency_days, vip_recency_threshold_days, and agent3_rule_text.`
+   - **Verify:** Alert rows are rule-driven and include threshold evidence fields.
+
+6. Build News Agent.
+   - **Click:** **Build** -> **Agent** -> **Create Agent**.
+   - **Type:** Name the agent `agent4-news-scope-enforcement`.
+   - **Type (instructions):** `Validate synthetic_regional_news_24m rows before correlation. Flag missing region as exception_missing_region, non-fictional company references as exception_non_fictional_company, malformed dates as exception_malformed_date, and stale/out-of-window rows as exception_stale_record. Exclude exception rows from downstream action evaluation.`
+   - **Click:** **Upload files**.
+     - **Type/Select:** Drag and drop the files in `.\data\exported-sheets\` (if they are not already available in this agent context).
+   - **Click:** **Save** the agent.
+   - **Test (Message the agent...):** `Validate synthetic regional news rows and return event_id with event_scope_status and exception code when applicable.`
+   - **Verify:** Only in-scope rows continue and exception rows are clearly flagged.
+
+7. Create/open the workflow artifact.
+   - **Click:** **Build** -> **Workflows** -> **Create (Sequential)**.
+   - **Click:** Save.
+   - **Type:** Name `vip-lifecycle-management-flow`.
+   - **Verify:** Workflow artifact is editable.
+
+8. Define inter-agent handoff chain.
+   - **Map:** `agent1_rfm` -> `agent2_tier_health` -> `agent3_vip_recency_alerts` -> `agent4_news_action_eval`.
+     - **Click:** The first stubbed-out **Agent** node in the workflow canvas (this opens the configuration menu on the right).
+     - **Type/Select:** Set this node to output `agent1_rfm` and click **Done**.
+     - **Click:** The next stubbed-out **Agent** node and set its input to `agent1_rfm`, then set output to `agent2_tier_health`.
+     - **Repeat:** Wire the next nodes to produce `agent3_vip_recency_alerts` and then `agent4_news_action_eval`.
+   - **Click:** Save.
+
+9. Create synthetic news source with exception-ready schema.
+   - **Click:** **Build** -> **Data**.
+   - **Click:** Create new table/dataset.
+   - **Type:** Name `synthetic_regional_news_24m`.
+   - **Type:** Add fields `event_id`, `region`, `event_date`, `event_type`, `severity`, `demand_signal`, `affected_companies`, `event_summary`.
+   - **Type:** Add synthetic rows limited to last 24 months, including regional events and fictional companies.
+   - **Verify:** Dataset exists and includes both increase/decrease demand examples.
+
+10. Build Agent 4 (news-based short-term action evaluation).
     - **Click:** **Build** -> **Workflows**.
-    - **Click:** Create new workflow artifact.
-    - **Type:** Name `level-300-foundry-multi-agent`.
-    - **Verify:** Workflow artifact is editable and runnable.
+    - **Type:** Join customer/region/time context with validated synthetic news events.
+    - **Type:** Generate short-term action rationale (for example outreach, promotion, retention focus) based on internal + external signal alignment.
+    - **Click:** Run Agent 4 logic.
+    - **Type:** Save output as `agent4_news_action_eval`.
+    - **Verify:** Each recommended action includes event-based justification plus `event_scope_status`.
 
-5. Ingest canonical sales source data.
-    - **Click:** **Build** -> **Data**.
-    - **Click:** Upload/Add data.
-    - **Type/Select:** `data/Zava Sales Data - FY2024-2026.xlsx`.
-    - **Click:** Confirm upload.
-    - **Verify:** Dataset is available in project assets.
+11. Produce required outputs.
+    - **Type:** Compile final outputs:
+      - at-risk VIP/Gold list,
+      - explanation fields,
+      - recommended actions,
+      - portfolio summary (tier counts, at-risk counts, at-risk % by tier).
+    - **Click:** Run and save final table(s).
+    - **Verify:** Output matches the workshop output checklist.
 
-6. Create synthetic news source with exception-ready schema.
-    - **Click:** **Build** -> **Data**.
-    - **Click:** Create new table/dataset.
-    - **Type:** Name `synthetic_regional_news_24m`.
-    - **Type:** Add fields `event_id`, `region`, `event_date`, `event_type`, `severity`, `demand_signal`, `affected_companies`, `event_summary`.
-    - **Type:** Add synthetic rows limited to last 24 months, including regional events and fictional companies.
-    - **Verify:** Dataset exists and includes both increase/decrease demand examples.
+12. Validate rule boundaries and agent coherence.
+    - **Type:** Pull samples for 0/1/2/3+ negative-signal scenarios.
+    - **Click:** Confirm status mapping (`0=healthy`, `1=watch`, `2+=at_risk`).
+    - **Click:** Confirm Agent 3 rule text matches exactly `tier='VIP' AND recency_days > 60`.
+    - **Click:** Spot-check at least 2 records where Agent 4 adds external context to justify short-term action.
+    - **Verify:** Multi-agent outputs remain consistent with baseline rule contract.
 
-7. Return to workflow authoring for multi-agent flow.
-    - **Click:** **Build** -> **Workflows**.
-    - **Click:** Open `level-300-foundry-multi-agent`.
-    - **Verify:** Workflow can access both uploaded datasets.
-
-8. Build Agent 1 (RFM).
-    - **Type:** Implement Recency, Frequency, Monetary calculations from source data.
-    - **Click:** Run Agent 1 transform.
-    - **Type:** Save output as `agent1_rfm`.
-    - **Verify:** `recency_days`, `frequency_90d`, `monetary_90d` fields exist.
-
-9. Build Agent 2 (tiers + simple health indicators).
-    - **Type:** Use RFM output to derive tiers (VIP/Gold/Silver/Bronze) and simple health indicators.
-    - **Type:** Calculate `negative_signal_count`, `triggered_signals`, and `risk_status` (0=healthy, 1=watch, 2+=at_risk).
-    - **Click:** Run Agent 2 transform.
-    - **Type:** Save output as `agent2_tier_health`.
-    - **Verify:** Tier, signal, and risk-status fields are populated.
-
-10. Build Agent 3 (VIP recency threshold alert).
-    - **Type:** Apply canonical rule `tier='VIP' AND recency_days > 60`.
-    - **Type:** Add evidence fields `vip_recency_threshold_days` (=60) and `agent3_rule_text` (`tier='VIP' AND recency_days > 60`).
-    - **Type:** Keep baseline risk gate aligned with `common/customer-lifecycle/risk-rules.md` (`2+` negative signals => `at_risk`).
-    - **Click:** Run Agent 3 logic.
-    - **Type:** Save output as `agent3_vip_recency_alerts`.
-    - **Verify:** Alert rows are explainable, rule-driven, and include threshold evidence fields.
-
-11. Build Agent 4 (synthetic-news scope enforcement).
-    - **Type:** Validate `synthetic_regional_news_24m` rows before join:
-      - flag missing region as `exception_missing_region`,
-      - flag non-fictional company references as `exception_non_fictional_company`,
-      - flag malformed dates as `exception_malformed_date`,
-      - flag stale/out-of-window rows as `exception_stale_record`.
-    - **Type:** Exclude exception rows from event correlation pipeline.
-    - **Verify:** Only in-scope rows continue to action evaluation.
-
-12. Build Agent 4 (news-based short-term action evaluation).
-     - **Click:** **Build** -> **Workflows**.
-     - **Type:** Join customer/region/time context with validated synthetic news events.
-     - **Type:** Generate short-term action rationale (for example outreach, promotion, retention focus) based on internal + external signal alignment.
-     - **Click:** Run Agent 4 logic.
-     - **Type:** Save output as `agent4_news_action_eval`.
-     - **Verify:** Each recommended action includes event-based justification plus `event_scope_status`.
-
-13. Verify inter-agent handoff chain.
-    - **Verify:** `agent1_rfm` -> `agent2_tier_health` -> `agent3_vip_recency_alerts` -> `agent4_news_action_eval`.
-    - **Verify:** Each downstream agent references required upstream artifact fields.
-
-14. Produce required Level 300 outputs.
-     - **Type:** Compile final outputs:
-       - at-risk VIP/Gold list,
-       - explanation fields,
-       - recommended actions,
-       - portfolio summary (tier counts, at-risk counts, at-risk % by tier).
-     - **Click:** Run and save final table(s).
-     - **Verify:** Output matches `labs/customer-lifecycle/level-300/output-contract.md`.
-
-15. Validate rule boundaries and agent coherence.
-     - **Type:** Pull samples for 0/1/2/3+ negative-signal scenarios.
-     - **Click:** Confirm status mapping (`0=healthy`, `1=watch`, `2+=at_risk`).
-     - **Click:** Confirm Agent 3 rule text matches exactly `tier='VIP' AND recency_days > 60`.
-     - **Click:** Spot-check at least 2 records where Agent 4 adds external context to justify short-term action.
-     - **Verify:** Multi-agent outputs remain consistent with baseline rule contract.
-
-16. Save outputs for downstream Agent Framework lab.
-    - **Click:** Persist/export `agent2_tier_health`, `agent3_vip_recency_alerts`, and final output table.
-    - **Verify:** Outputs are ready for `labs/customer-lifecycle/level-300/agent-framework.md`.
+13. Save outputs for downstream Agent Framework lab.
+   - **Click:** Persist/export `agent2_tier_health`, `agent3_vip_recency_alerts`, and final output table.
+   - **Verify:** Outputs are ready for the downstream Agent Framework lab.
 
 ## Timebox Guidance
 1. **0-10 min:** Ingest source + create orchestration artifact.
@@ -164,4 +161,4 @@ Build a four-agent Foundry workflow that turns raw sales data into business-read
 5. **50-60 min:** Final output assembly + boundary validation.
 
 ## Scope-Cut Rule
-If time runs short, keep Agents 1-3 and baseline outputs in class, then move deeper Agent 4 expansion to `labs/customer-lifecycle/level-400/extensions.md` (do not delete).
+If time runs short, keep Agents 1-3 and baseline outputs in class, then move deeper Agent 4 expansion to the after-class extensions backlog (do not delete).

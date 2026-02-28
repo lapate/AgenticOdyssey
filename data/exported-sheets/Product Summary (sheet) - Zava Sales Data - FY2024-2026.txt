@@ -1,0 +1,26 @@
+﻿SKU,Product,Product Line,Category,Total Orders,Total Units,Total Revenue,Total Cost,Gross Profit,Margin %,Avg Selling Price
+ZCR-FBR-NAN,ZavaCore Fiber — Nano Grade,Supply,Raw Materials,10,405,"$928,800","$356,400","$572,400",61.6%,"$2,293"
+ZCR-FBR-SYS,ZavaCore Fiber — Systems Grade,Supply,Raw Materials,20,610,"$736,875","$277,550","$459,325",62.3%,"$1,208"
+ZCS-JRS-CUS,Systems Custom Team Jersey,Systems,Team Uniforms,19,2225,"$707,772","$255,875","$451,897",63.8%,$318
+ZCR-FBR-FLD,ZavaCore Fiber — Field Grade,Supply,Raw Materials,22,810,"$666,825","$251,100","$415,725",62.3%,$823
+ZCA-SC-PRO,Smart Cleats Pro,Accessories,Footwear,224,2512,"$578,987","$205,984","$373,003",64.4%,$230
+ZCF-PR-ETJ,Field Premium Extreme Temp Jacket,Field,Outerwear,122,1903,"$488,459","$167,464","$320,995",65.7%,$257
+ZCF-PR-LEG,Field Premium Performance Leggings,Field,Bottoms,206,2789,"$439,907","$145,028","$294,879",67.0%,$158
+ZCF-PR-LST,Field Premium Long Sleeve Top,Field,Tops,249,2969,"$411,575","$133,605","$277,970",67.5%,$139
+ZCA-SC-STD,Smart Cleats Standard,Accessories,Footwear,186,2044,"$342,159","$118,552","$223,607",65.4%,$167
+ZCF-PR-SST,Field Premium Short Sleeve Top,Field,Tops,249,2690,"$324,693","$104,910","$219,783",67.7%,$121
+ZCF-EL-LEG,Field Elite Performance Leggings,Field,Bottoms,202,2943,"$323,293","$111,834","$211,459",65.4%,$110
+ZCF-EL-SST,Field Elite Short Sleeve Top,Field,Tops,247,4096,"$298,561","$102,400","$196,161",65.7%,$73
+ZCF-RC-TOP,Field Recovery Compression Top,Field,Tops,101,2000,"$237,296","$80,000","$157,296",66.3%,$119
+ZCF-EL-LST,Field Elite Long Sleeve Top,Field,Tops,227,2480,"$204,589","$69,440","$135,149",66.1%,$82
+ZCR-DEV-01,ZavaCore Developer Kit,Supply,Dev Tools,13,400,"$194,984","$66,000","$128,984",66.2%,$487
+ZCF-ST-ETJ,Field Standard Extreme Temp Jacket,Field,Outerwear,105,919,"$169,697","$59,735","$109,962",64.8%,$185
+ZCA-INS-01,Smart Insole,Accessories,Footwear,126,1928,"$158,932","$53,984","$104,948",66.0%,$82
+ZCF-ST-CYC,Field Standard Cycling Jersey,Field,Tops,87,1696,"$154,935","$55,968","$98,967",63.9%,$91
+ZCF-ST-LST,Field Standard Long Sleeve Top,Field,Tops,150,2717,"$147,928","$54,340","$93,588",63.3%,$54
+ZCF-ST-TRJ,Field Standard Track Jacket,Field,Outerwear,50,962,"$132,536","$46,176","$86,360",65.2%,$138
+ZCF-PR-CYC,Field Premium Cycling Jersey,Field,Tops,65,858,"$119,275","$39,468","$79,807",66.9%,$139
+ZCF-PR-RVS,Field Premium Running Vest,Field,Tops,75,1084,"$109,245","$36,856","$72,389",66.3%,$101
+ZCF-PR-TRJ,Field Premium Track Jacket,Field,Outerwear,49,514,"$105,175","$34,952","$70,223",66.8%,$205
+ZCF-ST-SST,Field Standard Short Sleeve Top,Field,Tops,122,1950,"$87,955","$33,150","$54,805",62.3%,$45
+ZCF-ST-RVS,Field Standard Running Vest,Field,Tops,75,665,"$42,659","$15,295","$27,364",64.1%,$64

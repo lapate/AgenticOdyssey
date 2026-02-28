@@ -20,6 +20,9 @@
 - [x] T013 Execute and record synthetic-news validation in `.specify/specs/customer-lifecycle/validation.md` against `labs/customer-lifecycle/level-300/foundry.md` and `common/customer-lifecycle/*` for dataset scope and exception handling coverage.
 - [x] T014 Reconcile cross-doc consistency in `README.md`, `docs/customer-lifecycle/learner-guide.md`, `docs/customer-lifecycle/facilitator-guide.md`, and `.specify/specs/customer-lifecycle/traceability.md` so Foundry navigation assumptions and workflow checks are traceable end-to-end.
 
+## Backlog (Placeholder Only)
+- [ ] B001 Revisit how workshop markdown definitions are consumed in lab flows (for example lifecycle definitions and output checklist) so future definition shifts can be handled with less manual rewrite.
+
 ## Dependency Notes
 - T002 depends on T001.
 - T003 depends on T001 and T002.

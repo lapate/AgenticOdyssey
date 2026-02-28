@@ -1,7 +1,7 @@
-# Level 300 Lab: Copilot Studio (30 Minutes)
+# Lab: Copilot Studio (30 Minutes)
 
 ## Goal
-Build/configure a Copilot Studio artifact, then use it to deliver the Level 300 baseline outputs:
+Build/configure a Copilot Studio artifact, then use it to deliver baseline outputs:
 1. at-risk VIP/Gold identification,
 2. plain-language risk explanation,
 3. recommended human action,
@@ -17,10 +17,7 @@ Build/configure a Copilot Studio artifact, then use it to deliver the Level 300 
 
 ## Required Inputs
 - `data/Zava Sales Data - FY2024-2026.xlsx`
-- `data/customer-lifecycle/derived-fields.md`
-- `common/customer-lifecycle/signal-dictionary.md`
-- `common/customer-lifecycle/risk-rules.md`
-- `labs/customer-lifecycle/level-300/output-contract.md`
+- Facilitator-provided lifecycle definitions and output checklist
 
 ## Preview UI Note (Important)
 Use these UI anchors for this lab:
@@ -38,7 +35,7 @@ If your tenant labels differ slightly, follow the intent of each step.
 2. Create (or open editable) copilot.
    - **Click:** Left nav **Agents**.
    - **Click:** Create/New agent (or open facilitator draft with edit rights).
-   - **Type:** Name: `Customer Lifecycle L300 Baseline`
+   - **Type:** Name: `Customer Lifecycle Baseline`
    - **Click:** Create/Open.
    - **Verify:** Agent opens and **Overview** and **Knowledge** tabs are available.
 
@@ -76,7 +73,7 @@ If your tenant labels differ slightly, follow the intent of each step.
 6. Start fresh test chat.
    - **Navigate:** **Overview** test chat panel (or equivalent test pane in your tenant).
    - **Click:** New chat / Reset.
-   - **Type:** `Start Level 300 customer lifecycle analysis for VIP and Gold tiers only.`
+   - **Type:** `Start customer lifecycle analysis for VIP and Gold tiers only.`
    - **Click:** Send.
 
 7. Confirm rule lock (quality gate).
@@ -109,7 +106,7 @@ If your tenant labels differ slightly, follow the intent of each step.
     - **Click:** Top tab **Activity**.
     - **Click:** Open one of your completed conversations.
     - **Click:** Toggle view between **Transcript + map view** and **map view**.
-    - **Compare:** Use this conversation as your source to confirm all required outputs in `labs/customer-lifecycle/level-300/output-contract.md`:
+    - **Compare:** Use this conversation as your source to confirm all required outputs in the workshop output checklist:
       1. at-risk VIP/Gold list with `negative_signal_count >= 2`,
       2. plain-language explanations,
       3. recommended human actions,
