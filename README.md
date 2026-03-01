@@ -1,4 +1,4 @@
-# Agentic AI with AgenticOdyssey - Hands-on Workshop (Labs 1–3)
+# Agentic AI on Microsoft Foundry — Hands-on Workshop (Labs 1–3)
 
 This repository contains a 3-lab, Python-first workshop for building, orchestrating, and evaluating AI agents using **Microsoft Foundry**.
 
