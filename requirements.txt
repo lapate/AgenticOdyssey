@@ -1,0 +1,8 @@
+# AgenticOdyssey workshop dependencies
+# Used by Lab 2 (orchestration) and Lab 3 (evaluation)
+azure-ai-projects
+azure-ai-evaluation
+azure-identity
+openai
+python-dotenv
+agent-framework
