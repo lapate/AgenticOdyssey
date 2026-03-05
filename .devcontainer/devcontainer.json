@@ -1,12 +1,17 @@
 {
-  "name": "Foundry Workshop",
-  "image": "mcr.microsoft.com/devcontainers/python:3.10",
-  "features": {
-  "ghcr.io/devcontainers/features/azure-cli:1.2.9": {}
-  },
+  "name": "AgenticOdyssey",
+  "image": "mcr.microsoft.com/devcontainers/python:dev-3.14",
   "customizations": {
     "vscode": {
-      "extensions": ["ms-python.python","ms-toolsai.jupyter"]
+      "extensions": [
+        "ms-python.python", 
+        "ms-toolsai.jupyter", 
+        "ms-azuretools.vscode-bicep",
+        "ms-azuretools.vscode-azure-mcp-server"
+      ]
+
     }
-  }
+  },
+  "postCreateCommand": "bash scripts/setup.sh"
+
 }
