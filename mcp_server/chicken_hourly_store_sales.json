@@ -4,909 +4,1039 @@
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 9,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "17faa731-9bde-4c13-8f6f-88f9f7a90203"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 11,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "37b8dc44-d8ce-4bac-ac2d-53cedacb33c2"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 6,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "2973576e-3af2-4e1e-b847-621360b187d5"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 15,
-    "chickens_sold": 15
+    "chickens_sold": 15,
+    "id": "fad79b6f-0879-46e8-b90f-a412d255a191"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 10,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "bd319314-e988-4c35-b49f-11504937e15d"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 12,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "c486037a-e5dc-46a6-9772-f641d2bf963c"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 8,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "48916e83-e67b-4b2c-8495-7afd778c4929"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 7,
-    "chickens_sold": 4
+    "chickens_sold": 4,
+    "id": "96f24230-d323-4135-8755-aaa6fe088840"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 4,
-    "chickens_sold": 4
+    "chickens_sold": 4,
+    "id": "cb3047de-e0e9-468c-a97b-f2d7afd103ce"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 13,
-    "chickens_sold": 10
+    "chickens_sold": 10,
+    "id": "617b5a0e-d6eb-492b-880d-6aab710924a7"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 12,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "3b77887a-a5e0-4f63-9282-abb5f26014eb"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 12,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "d391f2cd-f602-4e13-a1d7-e9a5afa59e47"
   },
   {
     "date": "2026-02-20",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 7,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "4a6e29aa-0fa8-44b8-8843-e8b43db9afa5"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 7,
-    "chickens_sold": 2
+    "chickens_sold": 2,
+    "id": "69be576a-5a39-45e2-91e3-eb466fe66109"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 7,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "48a6a999-1fd8-45ba-beb9-602392974fa9"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 11,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "bc6fd6eb-c16d-4be3-9c7e-bef4063bac3e"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 15,
-    "chickens_sold": 13
+    "chickens_sold": 13,
+    "id": "fcd8a6b6-3e3d-4787-8127-a57c57780b41"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 16,
-    "chickens_sold": 15
+    "chickens_sold": 15,
+    "id": "3bb4d9e3-7124-4426-b188-495db1913947"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 11,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "b55644ce-56cf-4c25-aa87-f3c75e837839"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 8,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "ba5f6141-cfc2-4669-8f4c-74e281bf94fd"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 10,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "a85dab68-de94-49ea-a54b-7a7ee00fcd25"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 7,
-    "chickens_sold": 4
+    "chickens_sold": 4,
+    "id": "17d06346-5559-44ff-b54f-f5042f21d2d5"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 16,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "0712b9cb-f688-41d5-b958-be99d8ca9802"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 14,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "d4752f45-efb3-4bdd-b6ac-5230e2fb7fe9"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 13,
-    "chickens_sold": 11
+    "chickens_sold": 11,
+    "id": "c4021f73-d8a5-4866-be88-a2d5c3bc7cad"
   },
   {
     "date": "2026-02-21",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 6,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "b422bc35-b5da-42f5-87fa-eae0aa86d0a6"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 4,
-    "chickens_sold": 1
+    "chickens_sold": 1,
+    "id": "012eea78-92c0-41a8-b1cd-77746fa6aa15"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 8,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "383e0b52-fe21-4e50-90e9-d08314e871be"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 4,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "04467cc3-5da3-48e0-94a5-4eb35502c696"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 12,
-    "chickens_sold": 10
+    "chickens_sold": 10,
+    "id": "f9b7dc0e-6af2-491a-9ef8-9a035fca469b"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 15,
-    "chickens_sold": 11
+    "chickens_sold": 11,
+    "id": "ebdf7eee-e3de-4a8b-b354-196a4e369739"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 11,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "d8cce3ee-19ed-4b6b-a192-8053aaac5542"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 8,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "c958ea69-b7a3-4389-966c-0802f2ba9e84"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 9,
-    "chickens_sold": 6
+    "chickens_sold": 6,
+    "id": "31d98f91-1d2e-405d-89ea-8d030e47a841"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 4,
-    "chickens_sold": 4
+    "chickens_sold": 4,
+    "id": "adb69f39-27e1-466e-a4f4-05da57c8e202"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 7,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "f155cc83-09b3-4eaf-a306-7cfc8424d0d9"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 9,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "f40f7286-c9cf-47e5-86b3-4dad8dad6a69"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 10,
-    "chickens_sold": 10
+    "chickens_sold": 10,
+    "id": "2cb33171-7f64-4452-b844-0b9f73f42640"
   },
   {
     "date": "2026-02-22",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 8,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "cf0099d8-7d61-4015-aede-25f459f60671"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 8,
-    "chickens_sold": 6
+    "chickens_sold": 6,
+    "id": "32e34068-4bdc-4444-a760-b34818ab84bd"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 11,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "8a3dc9a8-c7fd-44a5-9e99-ec5b5e9f9c99"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 6,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "32594d8c-1169-482c-b79c-8f848647846c"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 14,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "7624c24d-816f-40f6-8f18-9ab26d49bf75"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 17,
-    "chickens_sold": 14
+    "chickens_sold": 14,
+    "id": "c675d697-a0a8-49ab-bded-149e2a97a43d"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 14,
-    "chickens_sold": 14
+    "chickens_sold": 14,
+    "id": "c825cc6b-f8f8-43d6-a177-6cf3bef2a1ad"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 9,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "650210dd-b75d-46a2-bf4e-381e18d30aa6"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 6,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "57011b7d-ef03-45f0-9577-d6f5a98e5cbd"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 9,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "2502c5ab-ace9-448c-83a5-538a11fd409f"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 9,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "d821d1d8-5371-4e30-96af-eadbcf2158f8"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 17,
-    "chickens_sold": 14
+    "chickens_sold": 14,
+    "id": "c494f646-0716-447a-b7da-ff997c5befbe"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 10,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "13cb1d4d-216a-416c-9e47-47abb6dcfc71"
   },
   {
     "date": "2026-02-23",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 6,
-    "chickens_sold": 1
+    "chickens_sold": 1,
+    "id": "62d86864-0607-485b-9935-2da370bb52e4"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 9,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "5c175b05-4cb6-4f81-8a75-7239c9aa3d3b"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 12,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "698061a7-5155-4d6b-a615-c2704ed3078a"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 9,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "b798b8e5-fe50-4d75-abf4-cc3fe30fdc6f"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 15,
-    "chickens_sold": 14
+    "chickens_sold": 14,
+    "id": "91a61f53-35be-4b81-9c53-a4f609e74d1a"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 15,
-    "chickens_sold": 14
+    "chickens_sold": 14,
+    "id": "6e131abb-ed57-4e17-9923-0a272b1c3c94"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 17,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "97d40f81-b6db-4bea-8083-0bf00499ad0a"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 5,
-    "chickens_sold": 2
+    "chickens_sold": 2,
+    "id": "a6ffa850-d613-45cf-8fa7-4cedca79450f"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 5,
-    "chickens_sold": 4
+    "chickens_sold": 4,
+    "id": "05e47ef7-fb14-4815-a8c3-def06c6bdf5a"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 8,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "0d533e61-aafb-4d4c-b2a2-2e5e422d1c55"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 9,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "2ca1a845-ffab-4bbd-a6ba-7eae74a98d83"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 9,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "edee59d2-d395-4545-8387-3263a19c8b15"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 10,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "9c78df8d-b193-4c84-8ecf-c2cf84a685e6"
   },
   {
     "date": "2026-02-24",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 11,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "76f693c2-83e6-4592-badc-8484d1dc61ea"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 9,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "e64ef0ff-8cd4-434b-a390-3ad5db27c4e8"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 8,
-    "chickens_sold": 6
+    "chickens_sold": 6,
+    "id": "f7f0311f-fb13-4fc9-b668-0e76ba047dfb"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 5,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "6c86c130-66ef-4d12-8f00-f9a6c068b8ca"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 18,
-    "chickens_sold": 15
+    "chickens_sold": 15,
+    "id": "e9b1d994-1b9c-4dbc-8ef0-7e368540332a"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 16,
-    "chickens_sold": 14
+    "chickens_sold": 14,
+    "id": "a513c805-685b-4416-9899-7e1c4ead7b2d"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 16,
-    "chickens_sold": 14
+    "chickens_sold": 14,
+    "id": "ec9dd599-4494-4bb1-aa50-180c1cbe51ad"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 6,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "940b0be0-9935-4882-a75c-664af6f4b649"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 4,
-    "chickens_sold": 2
+    "chickens_sold": 2,
+    "id": "2ae6e462-dd91-4a1a-bd11-423a0f3c3989"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 7,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "e8698f08-b9ca-46c5-9878-177770c1e636"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 13,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "87c8ccbb-4a70-43d5-bfc0-a63d330715ef"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 13,
-    "chickens_sold": 10
+    "chickens_sold": 10,
+    "id": "45e023a6-c074-47a3-958f-b153ce1a85eb"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 12,
-    "chickens_sold": 10
+    "chickens_sold": 10,
+    "id": "287d50a5-feb7-48ff-9ebf-d3e2ce774c46"
   },
   {
     "date": "2026-02-25",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 8,
-    "chickens_sold": 6
+    "chickens_sold": 6,
+    "id": "c15658de-1c37-474f-b020-50ca174a213e"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 6,
-    "chickens_sold": 6
+    "chickens_sold": 6,
+    "id": "4333cc5a-7c3d-4a0c-ba70-87666aa61fa1"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 10,
-    "chickens_sold": 6
+    "chickens_sold": 6,
+    "id": "8de3104c-0266-4daa-8aa1-21f56a65e2da"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 7,
-    "chickens_sold": 6
+    "chickens_sold": 6,
+    "id": "49cbd9cb-fca5-4c86-80fd-471153d7eb75"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 13,
-    "chickens_sold": 13
+    "chickens_sold": 13,
+    "id": "13f1556f-3664-4643-9aea-9e10c84ed8f9"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 15,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "3b5965b4-29d8-4908-b0fb-b40732662b73"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 16,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "7b34cd21-87c2-436e-b5e4-95fbf8c76476"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 6,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "6300fea6-f301-4465-b8c3-644ebbdfcfd9"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 3,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "645104ad-76dd-48af-831f-1869adccba87"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 3,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "4d336a20-425e-42f0-bbf6-338a8ee947c7"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 14,
-    "chickens_sold": 11
+    "chickens_sold": 11,
+    "id": "b2a47187-524f-46c1-90d4-e19b66ecaa60"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 13,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "0fdd40cd-0bb0-4613-9e3d-fc2eac2d4e34"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 9,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "b3bbb1a2-fafe-4aa9-bb40-a7716782d83d"
   },
   {
     "date": "2026-02-26",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 6,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "fac7362a-8a62-4705-bcf4-f45d4f4753bb"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 10,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "a5e23521-fbc3-49be-aa88-accd5aa94228"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 10,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "b9cc1b00-78ff-4a70-82da-49f2b9a9b4a5"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 8,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "ec9c9e04-6008-49cd-949a-5181c034ba49"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 17,
-    "chickens_sold": 13
+    "chickens_sold": 13,
+    "id": "83e48f29-d3cc-4c57-89b7-9c0154b0ec40"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 19,
-    "chickens_sold": 19
+    "chickens_sold": 19,
+    "id": "355a20b6-2a01-4d1a-9c25-d2fe9fa562bb"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 14,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "46ac64f1-dda3-4656-b35b-7be2b188b41e"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 7,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "5b45182f-ec9f-4e59-9b66-d54e46b1f5cb"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 9,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "4d0f855d-c80b-40f0-89be-c4fed6a1b484"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 7,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "74c52026-f840-4dc8-9c56-d1cb14681fd8"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 14,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "caa4b966-af26-4710-81ac-2d46940c7d5b"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 15,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "128e9eed-8938-43a1-8523-a87652c5a380"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 16,
-    "chickens_sold": 16
+    "chickens_sold": 16,
+    "id": "b43445db-d135-47ec-84eb-7cd1e0c2df4f"
   },
   {
     "date": "2026-02-27",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 10,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "7ea3663b-45e9-4352-8244-60564b499607"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 6,
-    "chickens_sold": 4
+    "chickens_sold": 4,
+    "id": "b608d92d-6fe9-45c0-bc46-46c36fcaef73"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 10,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "071149af-89e0-44bd-bb6b-e5d9c8131d45"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 7,
-    "chickens_sold": 6
+    "chickens_sold": 6,
+    "id": "be03dd14-4b2e-4bd5-8d22-53784f7348bf"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 13,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "ad20b0ec-ca04-4f81-9f73-63289c166a47"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 12,
-    "chickens_sold": 10
+    "chickens_sold": 10,
+    "id": "1bb814b4-adf1-497b-8a9d-4294d7136579"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 18,
-    "chickens_sold": 15
+    "chickens_sold": 15,
+    "id": "2f12a8e3-189d-409b-b0f2-c4f76a712095"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 3,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "23a6a3da-f904-4d44-a419-7a70d66e28bc"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 6,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "0cfe8c4d-6d14-4c6a-9431-33adc66536d2"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 11,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "6a0792cc-1163-4949-b69f-f8760ed33fbd"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 13,
-    "chickens_sold": 11
+    "chickens_sold": 11,
+    "id": "94afe585-6771-491c-b185-6cf1b2a7b086"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 10,
-    "chickens_sold": 7
+    "chickens_sold": 7,
+    "id": "7d5683f0-5771-4b4c-bb15-6c48ff4127ae"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 17,
-    "chickens_sold": 14
+    "chickens_sold": 14,
+    "id": "4335071f-d6b2-43bc-a7c6-4304aa6609ab"
   },
   {
     "date": "2026-02-28",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 7,
-    "chickens_sold": 4
+    "chickens_sold": 4,
+    "id": "5b402f2c-9c6b-4a14-928b-139cde3e62f1"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "08:00",
     "chickens_cooked": 8,
-    "chickens_sold": 4
+    "chickens_sold": 4,
+    "id": "186562a4-8bfe-49e5-81be-c591e538db2e"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "09:00",
     "chickens_cooked": 7,
-    "chickens_sold": 5
+    "chickens_sold": 5,
+    "id": "29904d83-0a4e-4e7f-a4e0-110273f9c651"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "10:00",
     "chickens_cooked": 9,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "99cd357e-b047-4b49-9863-f6c77ce67402"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "11:00",
     "chickens_cooked": 19,
-    "chickens_sold": 15
+    "chickens_sold": 15,
+    "id": "8b590d88-1ec1-4a40-bf55-3dc4eb35b24e"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "12:00",
     "chickens_cooked": 12,
-    "chickens_sold": 10
+    "chickens_sold": 10,
+    "id": "a8c7d342-ae1c-4ed3-8fac-0179b0b1bab5"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "13:00",
     "chickens_cooked": 13,
-    "chickens_sold": 12
+    "chickens_sold": 12,
+    "id": "ff7b3b7c-53a1-441d-9731-a72973ee95f7"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "14:00",
     "chickens_cooked": 10,
-    "chickens_sold": 9
+    "chickens_sold": 9,
+    "id": "b5051c22-b57a-4460-9e40-8eb8e4842bfe"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "15:00",
     "chickens_cooked": 9,
-    "chickens_sold": 8
+    "chickens_sold": 8,
+    "id": "3dc61b54-b9fe-44e1-802d-734d476d6436"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "16:00",
     "chickens_cooked": 4,
-    "chickens_sold": 4
+    "chickens_sold": 4,
+    "id": "c2b64809-47c3-41ef-9c00-ea8339bbc3c6"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "17:00",
     "chickens_cooked": 15,
-    "chickens_sold": 15
+    "chickens_sold": 15,
+    "id": "034de514-bbb2-41dc-8066-d1c3efb590af"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "18:00",
     "chickens_cooked": 11,
-    "chickens_sold": 11
+    "chickens_sold": 11,
+    "id": "9010e863-28dc-4e11-a5a6-2206af18374c"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "19:00",
     "chickens_cooked": 13,
-    "chickens_sold": 10
+    "chickens_sold": 10,
+    "id": "2d606768-97d1-4bbb-9894-b3d4f51fe73e"
   },
   {
     "date": "2026-03-01",
     "store_id": "Store-001",
     "hour": "20:00",
     "chickens_cooked": 4,
-    "chickens_sold": 3
+    "chickens_sold": 3,
+    "id": "190291e2-4f74-4ddd-88a5-9ec63bc13eb2"
   }
 ]

@@ -6,7 +6,8 @@
     "purchase_cost_usd": 276,
     "chickens_sold_total": 96,
     "sales_revenue_usd": 480,
-    "gross_profit_usd": 204
+    "gross_profit_usd": 204,
+    "id": "695ce6fd-42d8-473c-bfb2-32eda7c84326"
   },
   {
     "date": "2026-02-21",
@@ -15,7 +16,8 @@
     "purchase_cost_usd": 304,
     "chickens_sold_total": 111,
     "sales_revenue_usd": 555,
-    "gross_profit_usd": 251
+    "gross_profit_usd": 251,
+    "id": "7a1089b0-154d-4f2f-8511-9317aaf49f47"
   },
   {
     "date": "2026-02-22",
@@ -24,7 +26,8 @@
     "purchase_cost_usd": 238,
     "chickens_sold_total": 85,
     "sales_revenue_usd": 425,
-    "gross_profit_usd": 187
+    "gross_profit_usd": 187,
+    "id": "e0076efd-2028-418a-9c3d-b814ffb3ced5"
   },
   {
     "date": "2026-02-23",
@@ -33,7 +36,8 @@
     "purchase_cost_usd": 286,
     "chickens_sold_total": 106,
     "sales_revenue_usd": 530,
-    "gross_profit_usd": 244
+    "gross_profit_usd": 244,
+    "id": "1667529c-d20d-46e8-9ece-90cec06a830f"
   },
   {
     "date": "2026-02-24",
@@ -42,7 +46,8 @@
     "purchase_cost_usd": 304,
     "chickens_sold_total": 104,
     "sales_revenue_usd": 520,
-    "gross_profit_usd": 216
+    "gross_profit_usd": 216,
+    "id": "6427a6e3-702d-4435-aa7b-50eaedb1c0b2"
   },
   {
     "date": "2026-02-25",
@@ -51,7 +56,8 @@
     "purchase_cost_usd": 290,
     "chickens_sold_total": 107,
     "sales_revenue_usd": 535,
-    "gross_profit_usd": 245
+    "gross_profit_usd": 245,
+    "id": "ea2920ca-1da2-4489-b563-bc9b041b9bcf"
   },
   {
     "date": "2026-02-26",
@@ -60,7 +66,8 @@
     "purchase_cost_usd": 264,
     "chickens_sold_total": 100,
     "sales_revenue_usd": 500,
-    "gross_profit_usd": 236
+    "gross_profit_usd": 236,
+    "id": "2b34b4ce-cfba-46f4-9eba-a0625c5c0ceb"
   },
   {
     "date": "2026-02-27",
@@ -69,7 +76,8 @@
     "purchase_cost_usd": 344,
     "chickens_sold_total": 130,
     "sales_revenue_usd": 650,
-    "gross_profit_usd": 306
+    "gross_profit_usd": 306,
+    "id": "89e3e68e-3b32-4d45-a4f5-fc1df6e6c05f"
   },
   {
     "date": "2026-02-28",
@@ -78,7 +86,8 @@
     "purchase_cost_usd": 294,
     "chickens_sold_total": 107,
     "sales_revenue_usd": 535,
-    "gross_profit_usd": 241
+    "gross_profit_usd": 241,
+    "id": "0a4cccd0-5dcf-4343-9104-e9d3e91294f9"
   },
   {
     "date": "2026-03-01",
@@ -87,6 +96,7 @@
     "purchase_cost_usd": 292,
     "chickens_sold_total": 115,
     "sales_revenue_usd": 575,
-    "gross_profit_usd": 283
+    "gross_profit_usd": 283,
+    "id": "b879136a-bfe2-4782-8a16-8bc6fa42d479"
   }
 ]
