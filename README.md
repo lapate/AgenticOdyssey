@@ -19,6 +19,10 @@ By the end of setup you will have:
 6. [Record Your Endpoints](#6-record-your-endpoints)
 7. [Cleaning Up](#7-cleaning-up)
 
+### Labs
+
+- **[Lab 1 — Create the Inventory Agent](labs/create-inventory-agent.md)**
+
 ---
 
 ## 1. Open the Lab in GitHub Codespaces
@@ -247,9 +251,3 @@ az group delete --name agenticodyssey-rg --yes --no-wait
 | MCP script fails with image pull error | Verify image tag: `ghcr.io/lapate/agenticodyssey/mcp-server:latest` is public |
 | Search script fails with `jq not found` | Run `sudo apt install -y jq` first |
 | Container IP shows as empty | Wait 30 seconds and re-run: `az container show --resource-group <rg> --name <name> --query ipAddress.ip -o tsv` |
-
-## Foundry Agent Building
-
-
-
-![alt text](/docs/diagram.png)s
