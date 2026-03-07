@@ -8,9 +8,9 @@ set -euo pipefail
 # uploads the News Story markdown files from the data/ directory.
 ###############################################################################
 
-# ── Configurable Variables ───────────────────────────────────────────────────
-RESOURCE_GROUP="${RESOURCE_GROUP:-agenticodyssey-rg}"
-LOCATION="${LOCATION:-westus3}"
+# ── Variables ─────────────────────────────────────────────────────────────────
+RESOURCE_GROUP="agenticodyssey-rg"
+LOCATION="westus3"
 SEARCH_SERVICE_NAME="${SEARCH_SERVICE_NAME:-agenticodyssey-search-$RANDOM}"
 INDEX_NAME="${INDEX_NAME:-news-stories}"
 API_VERSION="2024-07-01"

@@ -92,20 +92,19 @@ The MCP server is a containerized FastMCP application that exposes CRUD tools fo
 
 ### 4a. Edit the deployment variables
 
-Open `scripts/deploy-mcp-server.sh` in the editor. Find the **"STUDENT: Edit these variables"** section near the top and update the two required values to be unique to you:
+Open `scripts/deploy-mcp-server.sh` in the editor. Find the **"STUDENT: Edit these variables"** section near the top and update `CONTAINER_NAME` to be unique to you:
 
 ```bash
 # ── STUDENT: Edit these variables ────────────────────────────────────────
-RESOURCE_GROUP="${RESOURCE_GROUP:-mcp-lab-rg}"       # ← Change this
-CONTAINER_NAME="${CONTAINER_NAME:-mcp-server}"        # ← Change this
+CONTAINER_NAME="${CONTAINER_NAME:-mcp-server}"   # ← Change this
 ```
 
 **Rules:**
 - Use only lowercase letters, numbers, and hyphens
-- Append your initials or a short unique string so you don't collide with other students
-- Example: `mcp-lab-jsmith-rg` and `mcp-server-jsmith`
+- Append your initials or a short unique string
+- Example: `mcp-server-jsmith`
 
-Leave `LOCATION` as `westus3` and `IMAGE_TAG` as `latest`.
+> **Note:** `RESOURCE_GROUP` (`agenticodyssey-rg`) and `LOCATION` (`westus3`) are already set for the lab — do not change them.
 
 > 📸 **HUMAN — DO THIS:** Take a screenshot of `scripts/deploy-mcp-server.sh` open in the VS Code editor with the two variables highlighted/edited.
 
@@ -232,10 +231,7 @@ You are now ready for the lab exercises. Your instructor will guide you through 
 When the lab is complete, delete your Azure resources to avoid charges:
 
 ```bash
-# Delete the MCP server resource group (replace with your actual name)
-az group delete --name mcp-lab-<your-initials>-rg --yes --no-wait
-
-# Delete the AI Search resource group
+# Delete all lab resources (both MCP server and AI Search share this group)
 az group delete --name agenticodyssey-rg --yes --no-wait
 ```
 
@@ -251,6 +247,9 @@ az group delete --name agenticodyssey-rg --yes --no-wait
 | MCP script fails with image pull error | Verify image tag: `ghcr.io/lapate/agenticodyssey/mcp-server:latest` is public |
 | Search script fails with `jq not found` | Run `sudo apt install -y jq` first |
 | Container IP shows as empty | Wait 30 seconds and re-run: `az container show --resource-group <rg> --name <name> --query ipAddress.ip -o tsv` |
+
+## Foundry Agent Building
+
 
 
 ![alt text](/docs/diagram.png)s

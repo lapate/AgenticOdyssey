@@ -9,8 +9,8 @@ set -euo pipefail
 # ┌─────────────────────────────────────────────────────────────────────────┐
 # │  INSTRUCTIONS FOR STUDENTS                                             │
 # │                                                                        │
-# │  1. Edit the variables below (RESOURCE_GROUP, CONTAINER_NAME, etc.)    │
-# │     to make them unique to you (e.g., append your initials).           │
+# │  1. Edit CONTAINER_NAME below to be unique to you                      │
+# │     (e.g., append your initials: "mcp-server-jsmith").                 │
 # │                                                                        │
 # │  2. Run `az login` to authenticate with Azure.                         │
 # │                                                                        │
@@ -21,25 +21,23 @@ set -euo pipefail
 # │     Use that URL to connect from Foundry or any MCP client.            │
 # │                                                                        │
 # │  5. To clean up when done:                                             │
-# │       az group delete --name <your-resource-group> --yes --no-wait     │
+# │       az group delete --name agenticodyssey-rg --yes --no-wait         │
 # └─────────────────────────────────────────────────────────────────────────┘
 ###############################################################################
 
 # ── STUDENT: Edit these variables ────────────────────────────────────────────
-# RESOURCE_GROUP : Name of the Azure resource group (must be unique to you).
-#                  Example: "mcp-lab-jsmith-rg"
-RESOURCE_GROUP="${RESOURCE_GROUP:-mcp-lab-rg}"
-
 # CONTAINER_NAME : Name for the container instance (must be unique to you).
 #                  Example: "mcp-server-jsmith"
 CONTAINER_NAME="${CONTAINER_NAME:-mcp-server}"
 
-# LOCATION : Azure region. Keep as westus3 unless instructed otherwise.
-LOCATION="${LOCATION:-westus3}"
-
 # IMAGE_TAG : The container image tag to deploy. Use "latest" for the most
 #             recent build, or a specific run tag like "run-5".
 IMAGE_TAG="${IMAGE_TAG:-latest}"
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Fixed values (do not change) ─────────────────────────────────────────────
+RESOURCE_GROUP="agenticodyssey-rg"
+LOCATION="westus3"
 # ─────────────────────────────────────────────────────────────────────────────
 
 # ── Derived values (no need to edit) ─────────────────────────────────────────
