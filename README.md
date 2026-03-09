@@ -22,6 +22,7 @@ By the end of setup you will have:
 ### Labs
 
 - **[Lab 1 — Create the Inventory Agent](labs/create-inventory-agent.md)**
+- **[Lab 2 — Create the Sales Insights Agent](labs/create-insights-agent.md)**
 
 ---
 

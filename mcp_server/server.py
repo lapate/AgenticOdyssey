@@ -10,7 +10,7 @@ DAILY_FILE = DATA_DIR / "chicken_daily_orders_financials.json"
 HOURLY_FILE = DATA_DIR / "chicken_hourly_store_sales.json"
 
 mcp = FastMCP(
-    "Chicken Store Data",
+    "Zava Groceries Data",
     instructions=(
         "MCP server providing CRUD operations on chicken store datasets: "
         "daily orders/financials and hourly store sales."

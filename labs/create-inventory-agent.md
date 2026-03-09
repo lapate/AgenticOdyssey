@@ -1,6 +1,6 @@
 # Lab: Create the Inventory Agent
 
-In this lab you will build a **Chicken Store Inventory Agent** in Microsoft Foundry. The agent connects to the live MCP server you deployed in the setup steps and can read, update, and answer questions about chicken store sales and financial data in real time.
+In this lab you will build a **Zava Groceries Inventory Agent** in Microsoft Foundry. The agent connects to the live MCP server you deployed in the setup steps and can read, update, and answer questions about Zava Groceries sales and financial data in real time.
 
 By the end of this lab you will have:
 - ✅ A named Foundry agent with a custom system prompt
@@ -58,7 +58,7 @@ Before starting, make sure you have:
 
 1. In the **Name** field, enter:
    ```
-   ChickenStoreInventoryAgent
+   ZavaGroceriesInventoryAgent
    ```
 
 2. Under **Model**, select **`gpt-4o`** (or the model your instructor specifies).
@@ -74,7 +74,7 @@ Before starting, make sure you have:
 The system prompt tells the agent who it is and what it can do. In the **Instructions** box, paste the following:
 
 ```
-You are ChickenStoreInventoryAgent, an AI assistant for Cluck & Co. chicken stores.
+You are ZavaGroceriesInventoryAgent, an AI assistant for Zava Groceries.
 
 You have access to live store data through a set of tools. You can:
 - Look up daily financial records (chickens bought, sold, revenue, profit) by date and store
@@ -213,7 +213,7 @@ Which day had the highest gross profit? How does that compare to the lowest?
 
 ## What You Built
 
-- A **ChickenStoreInventoryAgent** that connects to a live containerized MCP server
+- A **ZavaGroceriesInventoryAgent** that connects to a live containerized MCP server
 - The agent can read, create, update, and delete real inventory records
 - It reasons over live data — no hardcoded information in the prompt
 

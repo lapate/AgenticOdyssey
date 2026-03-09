@@ -91,7 +91,7 @@ AgenticOdyssey/
   4. Test prompts / verification steps
   5. A Troubleshooting table at the end
 - The `README.md` is the **participant guide** — it covers environment setup and links to individual labs
-- Agent names follow PascalCase: `ChickenStoreInventoryAgent`, `SalesInsightsAgent`
+- Agent names follow PascalCase: `ZavaGroceriesInventoryAgent`, `SalesInsightsAgent`
 
 ---
 
@@ -106,5 +106,6 @@ AgenticOdyssey/
 ## Workshop Flow (Labs in Order)
 
 1. **Setup** (README.md) — Codespaces, `az login`, deploy MCP server, deploy AI Search
-2. **Lab 1** (`labs/create-inventory-agent.md`) — Build `ChickenStoreInventoryAgent` in Foundry portal, connect MCP server
-3. More labs TBD — Python orchestration, agent evaluation
+2. **Lab 1** (`labs/create-inventory-agent.md`) — Build `ZavaGroceriesInventoryAgent` in Foundry portal, connect MCP server
+3. **Lab 2** (`labs/create-insights-agent.md`) — Build `SalesInsightsAgent` in Foundry portal, connect Azure AI Search + MCP server, produces structured markdown recommendations for human review or agent handoff
+4. More labs TBD — Python orchestration wiring the two agents together, agent evaluation
