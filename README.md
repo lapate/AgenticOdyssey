@@ -34,20 +34,21 @@ By the end of setup you will have:
 
 ![alt text](/docs/create_codespace_on_main.png)
 
-The codespace will open in a browser-based VS Code window. The very first time it loads it will automatically run the environment setup script — you will see terminal activity at the bottom of the screen.
+The codespace will open in a browser-based VS Code window. The environment will automatically set itself up — you will see terminal activity at the bottom of the screen as it installs dependencies.
 
 ---
 
 ## 2. Wait for Automatic Setup
 
-The devcontainer is configured to automatically run `scripts/setup.sh` after the environment is created. This script:
+The devcontainer is configured to automatically install everything you need:
 
-- Installs **Azure CLI** (if not already present)
-- Installs **uv** (fast Python package manager)
-- Creates a Python virtual environment
-- Installs all Python dependencies from `requirements.txt`
+- **Azure CLI** — installed via a devcontainer feature (no script required)
+- **git-lfs** — installed via a devcontainer feature
+- **Python dependencies** — installed from `requirements.txt` automatically
 
-**Wait for the terminal to finish and show no errors before proceeding.**
+This happens in the background when the codespace first starts. **Wait for the terminal activity to finish before proceeding.**
+
+> ℹ️ `scripts/setup.sh` exists in the repo but is **not** used by the devcontainer — it is only needed if you are setting up a local environment outside of Codespaces.
 
 ---
 
@@ -58,6 +59,8 @@ Open a new terminal in the codespace (**Terminal → New Terminal**) and run:
 ```bash
 az login --use-device-code
 ```
+
+🤔 NOTE: Login using your personal Azure account, not your corp @microsoft.com account.
 
 > **Why `--use-device-code`?** Codespaces run in a remote container and can't open a browser directly. This command gives you a short code to enter at [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) from your local browser.
 
@@ -73,7 +76,7 @@ and enter the code XXXXXXXX to authenticate.
 3. Enter the code and sign in with your Azure credentials
 4. Return to the codespace — you should see your subscription listed
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the device login page at **microsoft.com/devicelogin** showing the code-entry box (before entering the code). Also take a screenshot of the codespace terminal after successful login showing the subscription list.
+![alt text](/docs/device-code.png)
 
 Confirm the correct subscription is active:
 
@@ -169,13 +172,7 @@ Leave `LOCATION` as `westus3`.
 
 > 📸 **HUMAN — DO THIS:** Take a screenshot of `scripts/create-azure-ai-search.sh` open in the editor showing the variables section.
 
-### 5b. Install jq (required by the script)
-
-```bash
-sudo apt install -y jq
-```
-
-### 5c. Run the script
+### 5b. Run the script
 
 ```bash
 bash scripts/create-azure-ai-search.sh
@@ -245,6 +242,6 @@ az group delete --name agenticodyssey-rg --yes --no-wait
 | `az: command not found` | Run `bash scripts/setup.sh` to reinstall the Azure CLI |
 | `Not logged in to Azure` | Run `az login --use-device-code` again |
 | `az account show` shows wrong subscription | Run `az account set --subscription "<name>"` |
+| `AuthorizationFailed` — does not have authorization to perform action over scope | You're logged into the wrong subscription. Run `az account list` to see all available subscriptions, then run `az account set --subscription "The Name of your Subscription"` to switch to the correct one. |
 | MCP script fails with image pull error | Verify image tag: `ghcr.io/lapate/agenticodyssey/mcp-server:latest` is public |
-| Search script fails with `jq not found` | Run `sudo apt install -y jq` first |
 | Container IP shows as empty | Wait 30 seconds and re-run: `az container show --resource-group <rg> --name <name> --query ipAddress.ip -o tsv` |
