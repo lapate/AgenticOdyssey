@@ -1,0 +1,25 @@
+# Enforce Unix line endings for all files that run on Linux
+# (scripts, Dockerfiles, Python) regardless of the OS doing the commit.
+
+* text=auto
+
+# Shell scripts must always be LF — CRLF breaks bash on Linux/Codespaces
+*.sh text eol=lf
+
+# Python files
+*.py text eol=lf
+
+# Docker
+Dockerfile text eol=lf
+.dockerignore text eol=lf
+
+# YAML / JSON / Markdown — normalize but don't force LF (editors handle these fine)
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+
+# Windows-specific files can keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
