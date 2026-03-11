@@ -25,7 +25,7 @@ Before starting, make sure you have completed:
 > ⚠️ **If you lost your MCP endpoint IP or Search key**, retrieve them:
 > ```bash
 > # MCP server IP
-> az container show --resource-group agenticodyssey-rg --name ckriutz-mcp-server \
+> az container show --resource-group agenticodyssey-rg --name {name}-mcp-server \
 >   --query ipAddress.ip --output tsv
 >
 > # AI Search key
@@ -71,7 +71,7 @@ The output is **structured markdown** — readable by a human manager, and parse
 1. Go to **[https://ai.azure.com](https://ai.azure.com)** and sign in.
 2. Select your **Hub** and **Project** from the left nav.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of your Foundry project open in the portal.
+![alt text](/docs/new_agent.png)
 
 ---
 
@@ -80,7 +80,7 @@ The output is **structured markdown** — readable by a human manager, and parse
 1. In the left sidebar, under **Build**, click **Agents**.
 2. You should see your `ZavaGroceriesInventoryAgent` from Lab 1 listed.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the Agents list showing the existing Inventory Agent.
+![alt text](/docs/existing_agent.png)
 
 ---
 
@@ -99,7 +99,7 @@ The output is **structured markdown** — readable by a human manager, and parse
    ```
 2. Under **Model**, select **`gpt-4o`**.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the agent name and model filled in.
+![alt text](image.png)
 
 ---
 
@@ -181,8 +181,6 @@ Keep your analysis grounded in the data. Do not speculate beyond what the number
 If data is missing or a tool call fails, say so explicitly rather than filling in gaps.
 ```
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the Instructions box with the full system prompt entered and visible.
-
 ---
 
 ## Step 6: Connect Azure AI Search as a Knowledge Tool
@@ -192,9 +190,13 @@ This gives the agent access to the news stories indexed in your Azure AI Search 
 1. In the **Tools** section, click **+ Add tool**.
 2. Select **Azure AI Search** (may appear as "Grounding" or "Knowledge" depending on Foundry version).
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the "Add tool" or "Add knowledge" dropdown showing Azure AI Search as an option.
+![alt text](/docs/azure-ai-search-tool.png)
 
-3. Fill in the connection details:
+3. Select "Connect to new resource or index.
+
+![alt text](/docs/connect_to_new_resource.png)
+
+4. Fill in the connection details:
 
    | Field | Value |
    |-------|-------|
@@ -202,9 +204,9 @@ This gives the agent access to the news stories indexed in your Azure AI Search 
    | **Index Name** | `news-stories` |
    | **Admin Key** | Your Azure AI Search admin key from setup |
 
-4. Click **Save** / **Add** to confirm the knowledge source.
+5. Click **Save** / **Add** to confirm the knowledge source.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the Azure AI Search connection details filled in before saving.
+![alt text](/docs/connect-to-ai-search.png)
 
 ---
 
@@ -220,7 +222,7 @@ Now add the live data tools from your MCP server, exactly as you did in Lab 1.
    ```
 4. Foundry will discover all 10 tools. Confirm they appear.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot showing both tools added — Azure AI Search and the MCP server — visible in the Tools section together.
+![alt text](/docs/all_the_tools.png)
 
 ---
 
@@ -229,7 +231,7 @@ Now add the live data tools from your MCP server, exactly as you did in Lab 1.
 1. Click **Save** to save the configuration.
 2. Note the **Agent ID** — you will need it in the orchestration lab.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the fully saved agent showing name, model, and both tools configured.
+![alt text](/docs/insight_agent_complete.png)
 
 ---
 
@@ -240,12 +242,14 @@ Now add the live data tools from your MCP server, exactly as you did in Lab 1.
 Analyze Store-001's performance for all available dates and give me a full insights report.
 ```
 **Expected behavior:**
-1. Agent calls `list_daily_financials` to retrieve all 10 records
-2. Agent calls `list_hourly_sales` to retrieve hourly breakdown
-3. Agent searches the AI Search index for relevant news stories
+1. Agent might call `list_daily_financials` to retrieve all 10 records
+2. Agent might call `list_hourly_sales` to retrieve hourly breakdown
+3. Agent might search the AI Search index for relevant news stories
 4. Agent returns a formatted markdown report with the ordering efficiency table, cooking window analysis, news context, and numbered action items
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the full insights report response, scrolled to show the structured markdown output including the Action Items section.
+🤔 NOTE: Clicking on "Logs" from the result will show tool calls.
+
+![alt text](/docs/tool_calls.png)
 
 ---
 
@@ -263,8 +267,6 @@ Which hours of the day are we wasting the most chicken? What should we change ab
 ```
 **Expected behavior:** Agent calls `list_hourly_sales` for all dates, calculates conversion rate per hour, identifies the worst-performing hours, and recommends specific shifts in cooking volume.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the hourly analysis response showing the conversion table and cooking schedule recommendation.
-
 ---
 
 ### Test 4 — Machine-readable handoff output
@@ -273,7 +275,7 @@ Give me the action items from your analysis in a format the inventory agent coul
 ```
 **Expected behavior:** Agent returns a clean numbered list of precise, structured instructions — e.g., specific order quantity changes, specific hours to reduce cooking — suitable for passing to `ZavaGroceriesInventoryAgent` as input.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the action item list output that would be passed to the Inventory Agent.
+![alt text](/docs/agent_results.png)
 
 ---
 

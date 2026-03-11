@@ -151,7 +151,7 @@ When the script finishes you will see output like:
 
 📌 **Copy and save the SSE endpoint URL** — you will need it when configuring your Foundry agent.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the terminal showing the successful deployment output with the MCP SSE Endpoint URL visible.
+![alt text](/docs/mcp_success.png)
 
 ---
 
@@ -169,8 +169,6 @@ SEARCH_SERVICE_NAME="${SEARCH_SERVICE_NAME:-agenticodyssey-search-$RANDOM}"  # a
 ```
 
 Leave `LOCATION` as `westus3`.
-
-> 📸 **HUMAN — DO THIS:** Take a screenshot of `scripts/create-azure-ai-search.sh` open in the editor showing the variables section.
 
 ### 5b. Run the script
 
@@ -206,7 +204,7 @@ When complete you will see:
 
 📌 **Copy and save both the Endpoint URL and the Admin Key** — you will need these in the Foundry configuration.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the terminal showing the successful Azure AI Search deployment output with the Endpoint and Admin Key visible.
+![alt text](/docs/ai-search-success.png)
 
 ---
 
