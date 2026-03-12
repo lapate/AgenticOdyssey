@@ -1,4 +1,5 @@
-azure-ai-projects
+azure-ai-projects==2.0.0b1
 azure-ai-evaluation
 azure-identity
 openai
+dotenv
