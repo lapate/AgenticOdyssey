@@ -38,7 +38,7 @@ Before starting, make sure you have:
 
 ## Step 2: Navigate to the Agents Playground
 
-1. In the left sidebar, under **Build**, click **Agents**.
+1. In the left sidebar, under **Build**, click **Agents**. Make sure the Build tab is also selected on the top menu if you don't see the build option.
 2. You will see the Agents playground with any existing agents listed.
 
 ![alt text](/docs/new_agent.png)
@@ -114,8 +114,8 @@ This is the key step — connecting your live MCP server so the agent has access
    Replace `<YOUR-IP>` with the IP address from your `deploy-mcp-server.sh` output.
 
    > **Example:** `http://4.227.57.55:8000/sse`
-
-5. Foundry will connect to the server and **automatically discover all available tools**. You should see all 10 tools appear:
+5. For authentication choose the "unoauthenticated" option.
+6. Foundry will connect to the server and **automatically discover all available tools**. You should see all 10 tools appear:
 
    | Tool | Description |
    |------|-------------|
@@ -130,7 +130,7 @@ This is the key step — connecting your live MCP server so the agent has access
    | `update_hourly_sale` | Modify an existing hourly record |
    | `delete_hourly_sale` | Remove an hourly record |
 
-6. Click **Save** or **Confirm** to add the MCP server.
+7. Click **Save** or **Confirm** to add the MCP server.
 
 
 ![alt text](/docs/mcp_tools_new.png)
