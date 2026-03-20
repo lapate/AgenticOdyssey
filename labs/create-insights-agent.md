@@ -3,10 +3,10 @@
 In this lab you will build a **Sales Insights Agent** in Microsoft Foundry. This agent combines three data sources — live store data from the MCP server, contextual news stories from Azure AI Search, and the reasoning power of the model — to identify ordering inefficiencies, recommend optimal cooking windows, and produce structured operational instructions ready to hand off to the Inventory Agent.
 
 By the end of this lab you will have:
-- ✅ A named Foundry agent with a grounded, reasoning-focused system prompt
-- ✅ Azure AI Search connected as a knowledge tool (news stories)
-- ✅ The MCP server connected as a live data tool
-- ✅ An agent that returns actionable markdown instructions suitable for human review **or** automated handoff to another agent
+- ✅ A named Foundry agent with a grounded, reasoning-focused system prompt.
+- ✅ Azure AI Search connected as a knowledge tool (news stories).
+- ✅ The MCP server connected as a live data tool.
+- ✅ An agent that returns actionable markdown instructions suitable for human review **or** automated handoff to another agent.
 
 ---
 
@@ -69,7 +69,7 @@ The output is **structured markdown** — readable by a human manager, and parse
 ## Step 1: Open Microsoft Foundry
 
 1. Go to **[https://ai.azure.com](https://ai.azure.com)** and sign in.
-2. Select your **Hub** and **Project** from the left nav.
+2. Select your **Hub** and **Project** from the sidebar navigation pane.
 
 ![alt text](/docs/new_agent.png)
 
@@ -77,7 +77,7 @@ The output is **structured markdown** — readable by a human manager, and parse
 
 ## Step 2: Navigate to the Agents Playground
 
-1. In the left sidebar, under **Build**, click **Agents**.
+1. In the sidebar, under **Build**, click **Agents**.
 2. You should see your `ZavaGroceriesInventoryAgent` from Lab 1 listed.
 
 ![alt text](/docs/existing_agent.png)
@@ -86,7 +86,7 @@ The output is **structured markdown** — readable by a human manager, and parse
 
 ## Step 3: Create a New Agent
 
-1. Click **+ New agent**.
+1. Select **+ New agent**.
 2. A new agent configuration panel opens.
 
 ---
@@ -204,7 +204,7 @@ This gives the agent access to the news stories indexed in your Azure AI Search 
    | **Index Name** | `news-stories` |
    | **Admin Key** | Your Azure AI Search admin key from setup |
 
-5. Click **Save** / **Add** to confirm the knowledge source.
+5. Select **Save** / **Add** to confirm the knowledge source.
 
 ![alt text](/docs/connect-to-ai-search.png)
 
@@ -214,13 +214,13 @@ This gives the agent access to the news stories indexed in your Azure AI Search 
 
 Now add the live data tools from your MCP server, exactly as you did in Lab 1.
 
-1. In the **Tools** section, click **+ Add tool** again.
+1. In the **Tools** section, select **+ Add tool** again.
 2. Select **MCP Server**.
 3. Enter your MCP SSE endpoint:
    ```
    http://<YOUR-IP>:8000/sse
    ```
-4. Foundry will discover all 10 tools. Confirm they appear.
+4. Foundry will discover all 10 tools. Confirm that they appear.
 
 ![alt text](/docs/all_the_tools.png)
 
@@ -228,7 +228,7 @@ Now add the live data tools from your MCP server, exactly as you did in Lab 1.
 
 ## Step 8: Save the Agent
 
-1. Click **Save** to save the configuration.
+1. Select **Save** to save the configuration.
 2. Note the **Agent ID** — you will need it in the orchestration lab.
 
 ![alt text](/docs/insight_agent_complete.png)
@@ -242,12 +242,12 @@ Now add the live data tools from your MCP server, exactly as you did in Lab 1.
 Analyze Store-001's performance for all available dates and give me a full insights report.
 ```
 **Expected behavior:**
-1. Agent might call `list_daily_financials` to retrieve all 10 records
-2. Agent might call `list_hourly_sales` to retrieve hourly breakdown
-3. Agent might search the AI Search index for relevant news stories
-4. Agent returns a formatted markdown report with the ordering efficiency table, cooking window analysis, news context, and numbered action items
+1. Agent might call `list_daily_financials` to retrieve all 10 records.
+2. Agent might call `list_hourly_sales` to retrieve hourly breakdown.
+3. Agent might search the AI Search index for relevant news stories.
+4. Agent returns a formatted markdown report with the ordering efficiency table, cooking window analysis, news context, and numbered action items.
 
-🤔 NOTE: Clicking on "Logs" from the result will show tool calls.
+🤔 NOTE: Selecting "Logs" from the result will show tool calls.
 
 ![alt text](/docs/tool_calls.png)
 
@@ -299,8 +299,8 @@ In a later lab, you will wire these together in Python so the Insights Agent's o
 
 | Problem | Solution |
 |---------|----------|
-| Azure AI Search tool returns no results | Verify the index name is exactly `news-stories` and documents were uploaded during setup |
-| Search key rejected | Retrieve a fresh key: `az search admin-key show --service-name <name> --resource-group agenticodyssey-rg --query primaryKey -o tsv` |
-| MCP tools not loading | Verify container is running: `az container show --resource-group agenticodyssey-rg --name ckriutz-mcp-server --query instanceView.state -o tsv` |
-| Report missing news context | Try adding "supply chain OR weather OR demand OR Store-001" as a test search in the Foundry knowledge tool settings |
-| Action items too vague | Add to your prompt: "Be specific — include exact quantities and hours" |
+| Azure AI Search tool returns no results | Verify the index name is exactly `news-stories` and documents were uploaded during setup. |
+| Search key rejected | Retrieve a fresh key: `az search admin-key show --service-name <name> --resource-group agenticodyssey-rg --query primaryKey -o tsv`. |
+| MCP tools not loading | Verify container is running: `az container show --resource-group agenticodyssey-rg --name ckriutz-mcp-server --query instanceView.state -o tsv`. |
+| Report missing news context | Try adding "supply chain OR weather OR demand OR Store-001" as a test search in the Foundry knowledge tool settings. |
+| Action items too vague | Add to your prompt: "Be specific — include exact quantities and hours". |
