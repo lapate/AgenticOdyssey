@@ -1,11 +1,11 @@
 # Agentic Odyssey — Participant Guide
 
-Welcome to **Agentic Odyssey**! In this lab you will deploy a live MCP (Model Context Protocol) server and an Azure AI Search index, then connect them to Microsoft Foundry to build an AI agent that can query real chicken-store sales data.
+Welcome to **Agentic Odyssey**! In this lab you will deploy a live Model Context Protocol (MCP) server and an Azure AI Search index, then connect them to Microsoft Foundry to build an AI agent that can query real chicken-store sales data.
 
 By the end of setup you will have:
-- ✅ A running **MCP Server** hosted in Azure (Container Instance) exposing 10 CRUD tools over SSE
-- ✅ An **Azure AI Search** index populated with news-story documents
-- ✅ Both endpoints ready to wire into a Foundry agent
+- ✅ A running **MCP Server** hosted in Azure (Container Instance) exposing ten create/read/update/delete (CRUD) tools over server-sent events (SSE).
+- ✅ An **Azure AI Search** index populated with news-story documents.
+- ✅ Both endpoints ready to wire into a Foundry agent.
 
 ---
 
@@ -28,9 +28,9 @@ By the end of setup you will have:
 
 ## 1. Open the Lab in GitHub Codespaces
 
-1. Navigate to this repository on GitHub: **https://github.com/lapate/AgenticOdyssey**
-2. Click the green **`<> Code`** button → select the **Codespaces** tab
-3. Click **"Create codespace on main"**
+1. Navigate to this repository on GitHub: **https://github.com/lapate/AgenticOdyssey**.
+2. Select the green **`<> Code`** button and then select the **Codespaces** tab.
+3. Select **"Create codespace on main"**.
 
 ![alt text](/docs/create_codespace_on_main.png)
 
@@ -42,9 +42,9 @@ The codespace will open in a browser-based VS Code window. The environment will 
 
 The devcontainer is configured to automatically install everything you need:
 
-- **Azure CLI** — installed via a devcontainer feature (no script required)
-- **git-lfs** — installed via a devcontainer feature
-- **Python dependencies** — installed from `requirements.txt` automatically
+- **Azure CLI** — installed via a devcontainer feature (no script required).
+- **git-lfs** — installed via a devcontainer feature.
+- **Python dependencies** — installed from `requirements.txt` automatically.
 
 This happens in the background when the codespace first starts. **Wait for the terminal activity to finish before proceeding.**
 
@@ -60,7 +60,7 @@ Open a new terminal in the codespace (**Terminal → New Terminal**) and run:
 az login --use-device-code
 ```
 
-🤔 NOTE: Login using your personal Azure account, not your corp @microsoft.com account.
+🤔 NOTE: Log in using your personal Azure account, not your corporate @microsoft.com account.
 
 > **Why `--use-device-code`?** Codespaces run in a remote container and can't open a browser directly. This command gives you a short code to enter at [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) from your local browser.
 
@@ -71,10 +71,10 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 and enter the code XXXXXXXX to authenticate.
 ```
 
-1. Copy the code from the terminal
-2. Open **https://microsoft.com/devicelogin** in your browser
-3. Enter the code and sign in with your Azure credentials
-4. Return to the codespace — you should see your subscription listed
+1. Copy the code from the terminal.
+2. Open **https://microsoft.com/devicelogin** in your browser.
+3. Enter the code and sign in with your Azure credentials.
+4. Return to the codespace. You should see your subscription listed.
 
 ![alt text](/docs/device-code.png)
 
@@ -106,13 +106,11 @@ CONTAINER_NAME="${CONTAINER_NAME:-mcp-server}"   # ← Change this
 ```
 
 **Rules:**
-- Use only lowercase letters, numbers, and hyphens
-- Append your initials or a short unique string
-- Example: `mcp-server-jsmith`
+- Use only lowercase letters, numbers, and hyphens.
+- Append your initials or a short unique string.
+- Example: `mcp-server-jsmith`.
 
 > **Note:** `RESOURCE_GROUP` (`agenticodyssey-rg`) and `LOCATION` (`westus3`) are already set for the lab — do not change them.
-
-> 📸 **HUMAN — DO THIS:** Take a screenshot of `scripts/deploy-mcp-server.sh` open in the VS Code editor with the two variables highlighted/edited.
 
 ### 4b. Run the script
 
@@ -121,11 +119,11 @@ bash scripts/deploy-mcp-server.sh
 ```
 
 The script will:
-1. Verify your Azure login
-2. Create a resource group in `westus3`
-3. Pull the pre-built container image from `ghcr.io/lapate/agenticodyssey/mcp-server:latest`
-4. Launch an Azure Container Instance with a public IP on port 8000
-5. Print your endpoint URL
+1. Verify your Azure login.
+2. Create a resource group in `westus3`.
+3. Pull the pre-built container image from `ghcr.io/lapate/agenticodyssey/mcp-server:latest`.
+4. Launch an Azure Container Instance with a public IP on port 8000.
+5. Print your endpoint URL.
 
 Deployment takes approximately **1–2 minutes**.
 
@@ -177,11 +175,11 @@ bash scripts/create-azure-ai-search.sh
 ```
 
 The script will:
-1. Create a resource group (reuses the existing one if it already exists)
-2. Provision an Azure AI Search service (Free tier) in `westus3`
-3. Create a `news-stories` index with title, date, type, region, and content fields
-4. Upload all news-story documents from the `data/` directory
-5. Print the search endpoint URL and admin key
+1. Create a resource group (reuses the existing one if it already exists).
+2. Provision an Azure AI Search service (Free tier) in `westus3`.
+3. Create a `news-stories` index with title, date, type, region, and content fields.
+4. Upload all news-story documents from the `data/` directory.
+5. Print the search endpoint URL and admin key.
 
 This takes approximately **3–5 minutes** while the search service provisions.
 
@@ -237,9 +235,9 @@ az group delete --name agenticodyssey-rg --yes --no-wait
 
 | Problem | Solution |
 |---------|----------|
-| `az: command not found` | Run `bash scripts/setup.sh` to reinstall the Azure CLI |
-| `Not logged in to Azure` | Run `az login --use-device-code` again |
-| `az account show` shows wrong subscription | Run `az account set --subscription "<name>"` |
+| `az: command not found` | Run `bash scripts/setup.sh` to reinstall the Azure CLI. |
+| `Not logged in to Azure` | Run `az login --use-device-code` again. |
+| `az account show` shows wrong subscription | Run `az account set --subscription "<name>"`. |
 | `AuthorizationFailed` — does not have authorization to perform action over scope | You're logged into the wrong subscription. Run `az account list` to see all available subscriptions, then run `az account set --subscription "The Name of your Subscription"` to switch to the correct one. |
-| MCP script fails with image pull error | Verify image tag: `ghcr.io/lapate/agenticodyssey/mcp-server:latest` is public |
-| Container IP shows as empty | Wait 30 seconds and re-run: `az container show --resource-group <rg> --name <name> --query ipAddress.ip -o tsv` |
+| MCP script fails with image pull error | Verify image tag: `ghcr.io/lapate/agenticodyssey/mcp-server:latest` is public. |
+| Container IP shows as empty | Wait 30 seconds and re-run: `az container show --resource-group <rg> --name <name> --query ipAddress.ip -o tsv`. |
