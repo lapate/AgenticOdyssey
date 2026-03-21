@@ -3,9 +3,9 @@
 In this lab you will build a **Zava Groceries Inventory Agent** in Microsoft Foundry. The agent connects to the live MCP server you deployed in the setup steps and can read, update, and answer questions about Zava Groceries sales and financial data in real time.
 
 By the end of this lab you will have:
-- ✅ A named Foundry agent with a custom system prompt
-- ✅ The MCP server connected as a live tool
-- ✅ A working agent you can query about store inventory and financials
+- ✅ A named Foundry agent with a custom system prompt.
+- ✅ The MCP server connected as a live tool.
+- ✅ A working agent you can query about store inventory and financials.
 
 ---
 
@@ -30,7 +30,7 @@ Before starting, make sure you have:
 ## Step 1: Open Microsoft Foundry
 
 1. Go to **[https://ai.azure.com](https://ai.azure.com)** and sign in with your Azure credentials.
-2. In the left navigation, select your **Hub** and then your **Project**.
+2. In the sidebar navigation pane, select your **Hub** and then your **Project**.
 
 ![alt text](/docs/azure_project.png)
 
@@ -38,7 +38,7 @@ Before starting, make sure you have:
 
 ## Step 2: Navigate to the Agents Playground
 
-1. In the left sidebar, under **Build**, click **Agents**. Make sure the Build tab is also selected on the top menu if you don't see the build option.
+1. In the sidebar pane, under **Build**, click **Agents**. Make sure the Build tab is also selected on the top menu if you don't see the build option.
 2. You will see the Agents playground with any existing agents listed.
 
 ![alt text](/docs/new_agent.png)
@@ -47,7 +47,7 @@ Before starting, make sure you have:
 
 ## Step 3: Create a New Agent
 
-1. Click **+ New agent** (or **+ Create**).
+1. Select **+ New agent** (or **+ Create**).
 2. A new agent configuration panel will open on the right.
 
 ![alt text](/docs/new_agent_name.png)
@@ -139,7 +139,7 @@ This is the key step — connecting your live MCP server so the agent has access
 
 ## Step 7: Save the Agent
 
-1. Click **Save** (or **Apply**) to save your agent configuration.
+1. Select **Save** (or **Apply**) to save your agent configuration.
 2. Note the **Agent ID** shown in the panel — you will need this in later labs.
 
 ![alt text](/docs/agent_id.png)
@@ -178,8 +178,6 @@ How many chickens were sold hour by hour at Store-001 on February 20th?
 ```
 **Expected:** The agent calls `list_hourly_sales` with date and store filters, returns 13 hourly records.
 
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the agent responding to the hourly sales query showing the breakdown by hour.
-
 ---
 
 ### Test 4 — Update a record
@@ -187,12 +185,10 @@ How many chickens were sold hour by hour at Store-001 on February 20th?
 The chickens sold total for Store-001 on February 21st should be 115, not 111. Please correct that.
 ```
 **Expected:** The agent:
-1. Calls `list_daily_financials` to find the record
-2. Confirms the record ID and current value with you
-3. Calls `update_daily_financial` with the corrected value
-4. Returns the updated record
-
-> 📸 **HUMAN — DO THIS:** Take a screenshot of the full update interaction showing the before/after values.
+1. Calls `list_daily_financials` to find the record.
+2. Confirms the record ID and current value with you.
+3. Calls `update_daily_financial` with the corrected value.
+4. Returns the updated record.
 
 ---
 
@@ -208,17 +204,17 @@ Which day had the highest gross profit? How does that compare to the lowest?
 
 | Problem | Solution |
 |---------|----------|
-| MCP server URL not accepted | Ensure the URL is `http://` not `https://`, and includes the full path: `http://<IP>:8000/sse` |
-| Tools not discovered | Verify the container is still running: `az container show --resource-group agenticodyssey-rg --name ckriutz-mcp-server --query instanceView.state -o tsv` |
-| Agent returns "I don't have access to data" | Check that the MCP tool is enabled (toggle is on) in the Tools section |
-| Container IP changed | Re-run `scripts/deploy-mcp-server.sh` — it prints the current IP at the end |
+| MCP server URL not accepted | Ensure the URL is `http://` not `https://`, and includes the full path: `http://<IP>:8000/sse`. |
+| Tools not discovered | Verify the container is still running: `az container show --resource-group agenticodyssey-rg --name ckriutz-mcp-server --query instanceView.state -o tsv`. |
+| Agent returns "I don't have access to data" | Check that the MCP tool is enabled (toggle is on) in the Tools section. |
+| Container IP changed | Re-run `scripts/deploy-mcp-server.sh` — it prints the current IP at the end. |
 
 ---
 
 ## What You Built
 
-- A **ZavaGroceriesInventoryAgent** that connects to a live containerized MCP server
-- The agent can read, create, update, and delete real inventory records
-- It reasons over live data — no hardcoded information in the prompt
+- A **ZavaGroceriesInventoryAgent** that connects to a live containerized MCP server.
+- The agent can read, create, update, and delete real inventory records.
+- It reasons over live data — no hardcoded information in the prompt.
 
 In the next lab, you will orchestrate this agent from Python code and combine it with additional data sources.
