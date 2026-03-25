@@ -102,19 +102,16 @@ Available stores: Store-001
 This is the key step — connecting your live MCP server so the agent has access to the real data tools.
 
 1. In the agent configuration panel, scroll down to the **Tools** section (or **Actions**, depending on your Foundry version).
-2. Click **+ Add tool** (or **+ Add action**).
-3. Select **MCP Server** from the tool type list.
+2. Select **+ Add tool** (or **+ Add action**) and then select **Browse all tools**.
+3. In the **Select a tool** dialog box, select the **Custom** pane. Select **Model Context Protocol (MCP)** and then select **Create**.
 
-![alt text](/docs/mcp_server.png)
+![alt text](/docs/MCP-custom-tool-create.png)
 
-4. In the **Server URL** field, enter your MCP SSE endpoint:
-   ```
-   http://<YOUR-IP>:8000/sse
-   ```
-   Replace `<YOUR-IP>` with the IP address from your `deploy-mcp-server.sh` output.
+4. In the **Add Model Context Protocol tool** dialog box, give the MCP server a name and enter the MCP SSE Endpoint URL. (See the beginning of this lab for instructions, if you don't have the endpoint.)
+5. In the **Authentication** field, select **`Unauthenticated`**, and then select **Connect**.
 
-   > **Example:** `http://4.227.57.55:8000/sse`
-5. For authentication choose the "unoauthenticated" option.
+![alt text](/docs/MCP-set-authentication.png)
+
 6. Foundry will connect to the server and **automatically discover all available tools**. You should see all 10 tools appear:
 
    | Tool | Description |
@@ -131,7 +128,6 @@ This is the key step — connecting your live MCP server so the agent has access
    | `delete_hourly_sale` | Remove an hourly record |
 
 7. Click **Save** or **Confirm** to add the MCP server.
-
 
 ![alt text](/docs/mcp_tools_new.png)
 
