@@ -77,7 +77,7 @@ The output is **structured markdown** — readable by a human manager, and parse
 
 ## Step 2: Navigate to the Agents Playground
 
-1. In the sidebar, under **Build**, click **Agents**.
+1. In the sidebar, under **Build**, select **Agents**.
 2. You should see your `ZavaGroceriesInventoryAgent` from Lab 1 listed.
 
 ![alt text](/docs/existing_agent.png)
@@ -98,8 +98,6 @@ The output is **structured markdown** — readable by a human manager, and parse
    SalesInsightsAgent
    ```
 2. Under **Model**, select **`gpt-4o`**.
-
-![alt text](image.png)
 
 ---
 
@@ -187,26 +185,24 @@ If data is missing or a tool call fails, say so explicitly rather than filling i
 
 This gives the agent access to the news stories indexed in your Azure AI Search instance.
 
-1. In the **Tools** section, click **+ Add tool**.
-2. Select **Azure AI Search** (may appear as "Grounding" or "Knowledge" depending on Foundry version).
+1. In the agent configuration panel, scroll down to the **Tools** section (or **Actions**, depending on your Foundry version).
+2. Select **+ Add tool** (or **+ Add action**) and then select **Browse all tools**.
+3. In the **Select a tool** dialog box, select the **Catalog** pane. Select **Azure AI Search** and then select **Create**.
+> Note: **Azure AI Search** may appear as "Grounding" or "Knowledge" depending on your Foundry version.
 
-![alt text](/docs/azure-ai-search-tool.png)
+![alt text](/docs/Azure_AI_Search_add_as_new_tool.png)
 
-3. Select "Connect to new resource or index.
+4. In the **Connect to Azure AI Search index** dialog box, select the drop arrow next to the **Azure AI Search connection** field. From the drop-down menu, select **Connect to new resource**.
 
-![alt text](/docs/connect_to_new_resource.png)
+![alt text](/docs/Azure_AI_Search_connect_to_new_resource.png)
 
-4. Fill in the connection details:
+5. In the **Create a new connection** dialog box, select the Azure AI Search resource that is in the resource group (`.rg`) that you created. For the **Auth type**, select **API Key**, and then select **Connect**.
 
-   | Field | Value |
-   |-------|-------|
-   | **Search Endpoint** | Your Azure AI Search endpoint URL from setup (e.g., `https://agenticodyssey-search-12345.search.windows.net`) |
-   | **Index Name** | `news-stories` |
-   | **Admin Key** | Your Azure AI Search admin key from setup |
+![alt text](/docs/Azure_AI_Search_select_resource.png)
 
-5. Select **Save** / **Add** to confirm the knowledge source.
+6. In the **Connect to Azure AI Search index** dialog box, select the `news-stories` index and then select **Add**.
 
-![alt text](/docs/connect-to-ai-search.png)
+![alt text](/docs/Azure_AI_Search_connect_to_index.png)
 
 ---
 
