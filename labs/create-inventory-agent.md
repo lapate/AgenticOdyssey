@@ -38,7 +38,7 @@ Before starting, make sure you have:
 
 ## Step 2: Navigate to the Agents Playground
 
-1. In the sidebar pane, under **Build**, click **Agents**. Make sure the Build tab is also selected on the top menu if you don't see the build option.
+1. In the sidebar pane, under **Build**, select **Agents**. Make sure the Build tab is also selected on the top menu if you don't see the build option.
 2. You will see the Agents playground with any existing agents listed.
 
 ![alt text](/docs/new_agent.png)
@@ -127,7 +127,7 @@ This is the key step — connecting your live MCP server so the agent has access
    | `update_hourly_sale` | Modify an existing hourly record |
    | `delete_hourly_sale` | Remove an hourly record |
 
-7. Click **Save** or **Confirm** to add the MCP server.
+7. Select **Save** or **Confirm** to add the MCP server.
 
 ![alt text](/docs/mcp_tools_new.png)
 
