@@ -23,6 +23,7 @@ By the end of setup you will have:
 
 - **[Lab 1 — Create the Inventory Agent](labs/create-inventory-agent.md)**
 - **[Lab 2 — Create the Sales Insights Agent](labs/create-insights-agent.md)**
+- **[Lab 3 — Secure Your AI Agent with Defender for Cloud](labs/secure-agent-defender-for-cloud.md)**
 
 ---
 
