@@ -34,9 +34,8 @@ Defender for AI Services must be enabled for Defender for Cloud to generate aler
 
 2. In the search bar at the top, type **"Defender for Cloud"** and select it from the results.
 
-📸 **HUMAN — DO THIS:** Take a screenshot showing the Defender for Cloud search result.
+<img width="975" height="491" alt="image" src="https://github.com/user-attachments/assets/7167985e-2609-4e35-9f23-0b0a52e077c6" />
 
-![Search for Defender for Cloud](/docs/defender-search.png)
 
 ---
 
