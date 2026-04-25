@@ -1,0 +1,40 @@
+{
+  "store": "Zava Rotisserie – Downtown",
+  "report_date": "2026-04-17",
+  "hourly_sales": [
+    { "hour": "06:00", "chickens_sold": 0, "notes": "Store opening prep" },
+    { "hour": "07:00", "chickens_sold": 2, "notes": "Early breakfast shoppers" },
+    { "hour": "08:00", "chickens_sold": 3, "notes": "Light morning traffic" },
+    { "hour": "09:00", "chickens_sold": 4, "notes": "Steady morning" },
+    { "hour": "10:00", "chickens_sold": 8, "notes": "Pre-lunch buildup" },
+    { "hour": "11:00", "chickens_sold": 18, "notes": "Lunch rush starts" },
+    { "hour": "12:00", "chickens_sold": 25, "notes": "Peak lunch hour" },
+    { "hour": "13:00", "chickens_sold": 20, "notes": "Lunch rush continues" },
+    { "hour": "14:00", "chickens_sold": 10, "notes": "Post-lunch drop" },
+    { "hour": "15:00", "chickens_sold": 6, "notes": "Afternoon lull" },
+    { "hour": "16:00", "chickens_sold": 12, "notes": "Early dinner shoppers" },
+    { "hour": "17:00", "chickens_sold": 22, "notes": "Dinner rush starts" },
+    { "hour": "18:00", "chickens_sold": 28, "notes": "Peak dinner hour" },
+    { "hour": "19:00", "chickens_sold": 18, "notes": "Dinner rush continues" },
+    { "hour": "20:00", "chickens_sold": 8, "notes": "Late evening slowdown" },
+    { "hour": "21:00", "chickens_sold": 3, "notes": "Near closing" }
+  ],
+  "historical_hourly_averages": {
+    "monday":    [0, 2, 3, 3, 7, 16, 22, 18, 9, 5, 10, 19, 24, 16, 7, 3],
+    "tuesday":   [0, 2, 3, 4, 7, 15, 21, 17, 8, 5, 11, 20, 25, 17, 7, 3],
+    "wednesday": [0, 2, 3, 4, 8, 17, 23, 19, 9, 6, 11, 21, 26, 18, 8, 3],
+    "thursday":  [0, 2, 3, 4, 8, 18, 24, 20, 10, 6, 12, 22, 27, 18, 8, 3],
+    "friday":    [0, 3, 4, 5, 10, 22, 30, 25, 13, 8, 15, 28, 35, 24, 10, 4],
+    "saturday":  [0, 4, 5, 6, 12, 25, 33, 28, 15, 10, 18, 30, 38, 26, 12, 5],
+    "sunday":    [0, 3, 4, 5, 9, 20, 28, 22, 12, 7, 14, 24, 30, 20, 9, 4]
+  },
+  "hours_labels": ["06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00"],
+  "waste_log": [
+    { "hour": "14:00", "chickens_wasted": 3, "reason": "Overcooked at 10:00 batch, sat too long" },
+    { "hour": "21:00", "chickens_wasted": 5, "reason": "End-of-day unsold from 19:00 batch" }
+  ],
+  "stockout_events": [
+    { "hour": "12:30", "duration_minutes": 15, "estimated_lost_sales": 4 },
+    { "hour": "18:15", "duration_minutes": 10, "estimated_lost_sales": 3 }
+  ]
+}
