@@ -15,6 +15,7 @@ Defender for AI Services must be enabled for Defender for Cloud to generate aler
 | Enable Defender for AI Services | Turn on threat protection for your AI workloads |
 | Generate security alerts | Understand how alerts are triggered for AI Services |
 | Monitor agent security | View and respond to security insights |
+| View recommendations in Foundry | Access Defender recommendations from the Operate tab |
 
 ---
 
@@ -169,6 +170,29 @@ In regard to agent security, what are some things that your customers may want t
 
 <img width="975" height="525" alt="image" src="https://github.com/user-attachments/assets/0ff4372a-0949-4d67-8d84-29796fb22b5c" />
 
+
+---
+
+## Step 6 — View Defender Recommendations in Microsoft Foundry
+
+You can also view Microsoft Defender for Cloud security recommendations directly within Microsoft Foundry without leaving the portal.
+
+1. Navigate to **Microsoft Foundry** at [ai.azure.com](https://ai.azure.com).
+
+2. Select the **"Operate"** tab in the top navigation bar.
+
+3. In the left-hand navigation, select **"Compliance"**.
+
+4. Select the **"Security posture"** tab.
+
+5. You will see **Microsoft Defender for Cloud** recommendations for your AI resources, including:
+   - MCP tool configuration recommendations
+   - Private Link usage
+   - Network access restrictions
+
+<img width="975" alt="Microsoft Foundry Compliance - Security posture showing Defender for Cloud recommendations" src="https://github.com/user-attachments/assets/PLACEHOLDER_IMAGE" />
+
+> **Tip:** Use the **Subscription** and **Resource** filters to narrow down recommendations to specific Foundry resources like your agents.
 
 ---
 
