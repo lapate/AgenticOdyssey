@@ -190,7 +190,8 @@ You can also view Microsoft Defender for Cloud security recommendations directly
    - Private Link usage
    - Network access restrictions
 
-<img width="975" alt="Microsoft Foundry Compliance - Security posture showing Defender for Cloud recommendations" src="https://github.com/user-attachments/assets/PLACEHOLDER_IMAGE" />
+<img width="1796" height="738" alt="image" src="https://github.com/user-attachments/assets/a5d313f3-eeb5-4ee7-826b-0db21a798850" />
+
 
 > **Tip:** Use the **Subscription** and **Resource** filters to narrow down recommendations to specific Foundry resources like your agents.
 
