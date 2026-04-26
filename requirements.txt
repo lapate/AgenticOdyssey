@@ -1,4 +1,0 @@
-azure-ai-projects
-azure-ai-evaluation
-azure-identity
-openai
