@@ -36,6 +36,11 @@ if ! command -v jq &> /dev/null; then
     exit 1
 fi
 
+if ! command -v curl &> /dev/null; then
+    echo "ERROR: jq is not installed. Install it with: sudo apt install -y curl"
+    exit 1
+fi
+
 echo "All prerequisites met."
 
 # ── Create Resource Group ────────────────────────────────────────────────────
@@ -69,7 +74,9 @@ ADMIN_KEY=$(az search admin-key show \
     --query primaryKey \
     --output tsv)
 
+
 SEARCH_ENDPOINT="https://${SEARCH_SERVICE_NAME}.search.windows.net"
+
 
 echo "Admin key retrieved."
 
@@ -172,7 +179,7 @@ if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
 else
     echo "ERROR: Document upload failed (HTTP $HTTP_CODE)."
     cat /tmp/search-upload-response.json
-    exit 1
+    echo "ERROR: HTTP POST of the example newstories has failed. Check your variables and that the AI Search was created in the Azure portal."
 fi
 
 # ── Verify Document Count ────────────────────────────────────────────────────
@@ -202,4 +209,4 @@ echo "  Documents      : $DOC_COUNT"
 echo "==========================================="
 echo ""
 echo "Test with:"
-echo "  curl -s '${SEARCH_ENDPOINT}/indexes/${INDEX_NAME}/docs?api-version=${API_VERSION}&search=chicken&\$top=3' -H 'api-key: ${ADMIN_KEY}' | jq ."
+echo "  curl -s '${SEARCH_ENDPOINT}/indexes/${INDEX_NAME}/docs?api-version=${API_VERSION}&search=chicken&\$top=3' -H api-key: '${ADMIN_KEY}' | jq ."
