@@ -1,0 +1,2 @@
+{"query": "Describe our top-selling product.", "response": "The Alpine Explorer Tent is our top-selling product.", "ground_truth": "The Alpine Explorer Tent is the most popular product based on sales."}
+{"query": "Which product is most popular?", "response": "The Alpine Explorer Tent leads sales.", "ground_truth": "The Alpine Explorer Tent is the most popular product."}
