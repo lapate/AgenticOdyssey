@@ -2,3 +2,5 @@ azure-ai-projects
 azure-ai-evaluation
 azure-identity
 openai
+agent-framework-core==1.0.1
+python-dotenv
