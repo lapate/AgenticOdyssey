@@ -15,13 +15,13 @@ Before starting, make sure you have:
 
 | Item | Where to get it |
 |------|----------------|
-| **MCP SSE Endpoint URL** | Output of `scripts/deploy-mcp-server.sh` — looks like `http://<IP>:8000/sse` |
+| **MCP SSE Endpoint URL** | Output of `scripts/deploy-mcp-server.sh` — looks like `http://<name>.westus3.azurecontainer.io:8000/sse` |
 | **Azure AI Foundry project** | Your instructor will provide the project URL or you will create one |
 
-> ⚠️ **Your MCP endpoint IP address is unique to your deployment.** It was printed at the end of the `deploy-mcp-server.sh` output. If you lost it, run this to retrieve it:
+> ⚠️ **Your MCP endpoint is unique to your deployment.** It was printed at the end of the `deploy-mcp-server.sh` output. If you lost it, run this to retrieve the DNS name:
 > ```bash
-> az container show --resource-group agenticodyssey-rg --name ckriutz-mcp-server \
->   --query ipAddress.ip --output tsv
+> az container show --resource-group agenticodyssey-rg --name <your-container-name> \
+>   --query ipAddress.fqdn --output tsv
 > ```
 > Then add `:8000/sse` to form your full endpoint.
 
@@ -200,10 +200,11 @@ Which day had the highest gross profit? How does that compare to the lowest?
 
 | Problem | Solution |
 |---------|----------|
-| MCP server URL not accepted | Ensure the URL is `http://` not `https://`, and includes the full path: `http://<IP>:8000/sse`. |
-| Tools not discovered | Verify the container is still running: `az container show --resource-group agenticodyssey-rg --name ckriutz-mcp-server --query instanceView.state -o tsv`. |
+| MCP server URL not accepted | Ensure the URL is `http://` not `https://`, and includes the full path: `http://<name>.westus3.azurecontainer.io:8000/sse`. |
+| `blocked by outbound SSRF protection` when adding the MCP tool | The container is usually just not reachable yet — wait 1–2 minutes after deployment and reconnect. |
+| Tools not discovered | Verify the container is still running: `az container show --resource-group agenticodyssey-rg --name <your-container-name> --query instanceView.state -o tsv`. |
 | Agent returns "I don't have access to data" | Check that the MCP tool is enabled (toggle is on) in the Tools section. |
-| Container IP changed | Re-run `scripts/deploy-mcp-server.sh` — it prints the current IP at the end. |
+| Container IP changed | Re-run `scripts/deploy-mcp-server.sh` — it prints the current DNS name and endpoint at the end. |
 
 ---
 

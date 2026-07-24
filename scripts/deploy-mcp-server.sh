@@ -80,6 +80,7 @@ az container create \
     --image "$IMAGE" \
     --ports "$PORT" \
     --ip-address Public \
+    --dns-name-label "$CONTAINER_NAME" \
     --location "$LOCATION" \
     --cpu 1 \
     --memory 1 \
@@ -90,12 +91,18 @@ az container create \
 echo "Container '$CONTAINER_NAME' deployed."
 echo ""
 
-# ── Get Public IP ────────────────────────────────────────────────────────────
-echo "=== Retrieving public IP ==="
+# ── Get Public IP and FQDN ───────────────────────────────────────────────────
+echo "=== Retrieving public IP and DNS name ==="
 IP_ADDRESS=$(az container show \
     --resource-group "$RESOURCE_GROUP" \
     --name "$CONTAINER_NAME" \
     --query ipAddress.ip \
+    --output tsv)
+
+FQDN=$(az container show \
+    --resource-group "$RESOURCE_GROUP" \
+    --name "$CONTAINER_NAME" \
+    --query ipAddress.fqdn \
     --output tsv)
 
 # ── Print Connection Info ────────────────────────────────────────────────────
@@ -108,13 +115,20 @@ echo "  Container      : $CONTAINER_NAME"
 echo "  Location       : $LOCATION"
 echo "  Image          : $IMAGE"
 echo "  Public IP      : $IP_ADDRESS"
+echo "  DNS Name       : $FQDN"
 echo ""
 echo "  MCP SSE Endpoint:"
-echo "    http://${IP_ADDRESS}:${PORT}/sse"
+echo "    http://${FQDN}:${PORT}/sse"
 echo ""
 echo "==========================================="
 echo ""
 echo "Use this endpoint URL in Foundry or any MCP client."
+echo ""
+echo "NOTE: The container can take 1-2 minutes to finish starting."
+echo "      If Foundry reports the endpoint is 'blocked by outbound SSRF"
+echo "      protection', the server is usually just not reachable yet --"
+echo "      wait a couple of minutes and reconnect. The DNS name above"
+echo "      gives you a stable, readable endpoint (the raw IP works too)."
 echo ""
 echo "To clean up resources when done:"
 echo "  az group delete --name $RESOURCE_GROUP --yes --no-wait"

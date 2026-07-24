@@ -16,17 +16,17 @@ Before starting, make sure you have completed:
 
 | Item | Where to get it |
 |------|----------------|
-| **MCP SSE Endpoint URL** | Output of `scripts/deploy-mcp-server.sh` — `http://<IP>:8000/sse` |
+| **MCP SSE Endpoint URL** | Output of `scripts/deploy-mcp-server.sh` — `http://<name>.westus3.azurecontainer.io:8000/sse` |
 | **Azure AI Search Endpoint** | Output of `scripts/create-azure-ai-search.sh` — `https://<name>.search.windows.net` |
 | **Azure AI Search Admin Key** | Output of `scripts/create-azure-ai-search.sh` — 32-character key |
 | **Azure AI Foundry project** | Your instructor will provide the project URL |
 | **Lab 1 complete** | The `ZavaGroceriesInventoryAgent` from Lab 1 is built and working |
 
-> ⚠️ **If you lost your MCP endpoint IP or Search key**, retrieve them:
+> ⚠️ **If you lost your MCP endpoint or Search key**, retrieve them:
 > ```bash
-> # MCP server IP
-> az container show --resource-group agenticodyssey-rg --name {name}-mcp-server \
->   --query ipAddress.ip --output tsv
+> # MCP server DNS name
+> az container show --resource-group agenticodyssey-rg --name <your-container-name> \
+>   --query ipAddress.fqdn --output tsv
 >
 > # AI Search key
 > az search admin-key show --service-name <your-search-service> \
@@ -297,6 +297,6 @@ In a later lab, you will wire these together in Python so the Insights Agent's o
 |---------|----------|
 | Azure AI Search tool returns no results | Verify the index name is exactly `news-stories` and documents were uploaded during setup. |
 | Search key rejected | Retrieve a fresh key: `az search admin-key show --service-name <name> --resource-group agenticodyssey-rg --query primaryKey -o tsv`. |
-| MCP tools not loading | Verify container is running: `az container show --resource-group agenticodyssey-rg --name ckriutz-mcp-server --query instanceView.state -o tsv`. |
+| MCP tools not loading | Verify container is running: `az container show --resource-group agenticodyssey-rg --name <your-container-name> --query instanceView.state -o tsv`. If Foundry reports *"blocked by outbound SSRF protection"*, the container is usually just not reachable yet — wait 1–2 minutes and reconnect. |
 | Report missing news context | Try adding "supply chain OR weather OR demand OR Store-001" as a test search in the Foundry knowledge tool settings. |
 | Action items too vague | Add to your prompt: "Be specific — include exact quantities and hours". |

@@ -136,19 +136,22 @@ When the script finishes you will see output like:
 ===========================================
   MCP Server Deployment Complete
 ===========================================
-  Resource Group : mcp-lab-jsmith-rg
+  Resource Group : agenticodyssey-rg
   Container      : mcp-server-jsmith
   Location       : westus3
   Image          : ghcr.io/lapate/agenticodyssey/mcp-server:latest
   Public IP      : 20.x.x.x
+  DNS Name       : mcp-server-jsmith.westus3.azurecontainer.io
 
   MCP SSE Endpoint:
-    http://20.x.x.x:8000/sse
+    http://mcp-server-jsmith.westus3.azurecontainer.io:8000/sse
 
 ===========================================
 ```
 
-📌 **Copy and save the SSE endpoint URL** — you will need it when configuring your Foundry agent.
+📌 **Copy and save the SSE endpoint URL** — you will need it when configuring your Foundry agent. The **DNS name** form shown above gives you a stable, readable endpoint (the raw IP works too).
+
+> ⏳ **Give it a minute.** The container can take **1–2 minutes** to finish starting after the script completes. If Foundry reports the endpoint is *"blocked by outbound SSRF protection"*, the server is usually just not reachable yet — wait a couple of minutes and reconnect.
 
 ![alt text](/docs/mcp_success.png)
 
@@ -213,7 +216,7 @@ Before moving on to the lab exercises, make sure you have noted down all three v
 
 | Value | Where to find it |
 |-------|-----------------|
-| **MCP SSE Endpoint** | Output of `deploy-mcp-server.sh` — looks like `http://<IP>:8000/sse` |
+| **MCP SSE Endpoint** | Output of `deploy-mcp-server.sh` — looks like `http://<name>.westus3.azurecontainer.io:8000/sse` |
 | **Search Endpoint** | Output of `create-azure-ai-search.sh` — looks like `https://<name>.search.windows.net` |
 | **Search Admin Key** | Output of `create-azure-ai-search.sh` — 32-character alphanumeric string |
 
@@ -242,3 +245,4 @@ az group delete --name agenticodyssey-rg --yes --no-wait
 | `AuthorizationFailed` — does not have authorization to perform action over scope | You're logged into the wrong subscription. Run `az account list` to see all available subscriptions, then run `az account set --subscription "The Name of your Subscription"` to switch to the correct one. |
 | MCP script fails with image pull error | Verify image tag: `ghcr.io/lapate/agenticodyssey/mcp-server:latest` is public. |
 | Container IP shows as empty | Wait 30 seconds and re-run: `az container show --resource-group <rg> --name <name> --query ipAddress.ip -o tsv`. |
+| Foundry: *"blocked by outbound SSRF protection"* when connecting the MCP tool | The container is usually just not reachable yet — wait 1–2 minutes after deployment and reconnect. |
