@@ -47,7 +47,7 @@ AgenticOdyssey/
 │   └── chicken_hourly_store_sales.json
 ├── scripts/                      ← Deployment & setup bash scripts
 │   ├── setup.sh                  ← Auto-runs in Codespaces (devcontainer postCreate)
-│   ├── deploy-mcp-server.sh      ← Deploys MCP server to Azure Container Instance
+│   ├── deploy-mcp-server.sh      ← Deploys MCP server to Azure Container Apps (HTTPS ingress)
 │   └── create-azure-ai-search.sh ← Deploys Azure AI Search + uploads documents
 ├── old/                          ← Previous lab materials (kept for reference)
 ├── new/                          ← New lab notebooks in development

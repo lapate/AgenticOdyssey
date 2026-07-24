@@ -16,17 +16,17 @@ Before starting, make sure you have completed:
 
 | Item | Where to get it |
 |------|----------------|
-| **MCP SSE Endpoint URL** | Output of `scripts/deploy-mcp-server.sh` — `http://<IP>:8000/sse` |
+| **MCP SSE Endpoint URL** | Output of `scripts/deploy-mcp-server.sh` — `https://<name>.<region-id>.azurecontainerapps.io/sse` |
 | **Azure AI Search Endpoint** | Output of `scripts/create-azure-ai-search.sh` — `https://<name>.search.windows.net` |
 | **Azure AI Search Admin Key** | Output of `scripts/create-azure-ai-search.sh` — 32-character key |
 | **Azure AI Foundry project** | Your instructor will provide the project URL |
 | **Lab 1 complete** | The `ZavaGroceriesInventoryAgent` from Lab 1 is built and working |
 
-> ⚠️ **If you lost your MCP endpoint IP or Search key**, retrieve them:
+> ⚠️ **If you lost your MCP endpoint or Search key**, retrieve them:
 > ```bash
-> # MCP server IP
-> az container show --resource-group agenticodyssey-rg --name {name}-mcp-server \
->   --query ipAddress.ip --output tsv
+> # MCP server FQDN (endpoint is https://<fqdn>/sse)
+> az containerapp show --resource-group agenticodyssey-rg --name <your-container-name> \
+>   --query properties.configuration.ingress.fqdn --output tsv
 >
 > # AI Search key
 > az search admin-key show --service-name <your-search-service> \
@@ -212,11 +212,11 @@ Now add the live data tools from your MCP server, exactly as you did in Lab 1.
 
 1. In the **Tools** section, select **+ Add tool** again.
 2. Select **MCP Server**.
-3. Enter your MCP SSE endpoint:
+3. Enter your MCP SSE endpoint (the `https://` URL from `deploy-mcp-server.sh`):
    ```
-   http://<YOUR-IP>:8000/sse
+   https://<name>.<region-id>.azurecontainerapps.io/sse
    ```
-4. Foundry will discover all 10 tools. Confirm that they appear.
+4. Set **Authentication** to **Unauthenticated**, then **Connect**. Foundry will discover all 10 tools. Confirm that they appear.
 
 ![alt text](/docs/all_the_tools.png)
 
@@ -297,6 +297,6 @@ In a later lab, you will wire these together in Python so the Insights Agent's o
 |---------|----------|
 | Azure AI Search tool returns no results | Verify the index name is exactly `news-stories` and documents were uploaded during setup. |
 | Search key rejected | Retrieve a fresh key: `az search admin-key show --service-name <name> --resource-group agenticodyssey-rg --query primaryKey -o tsv`. |
-| MCP tools not loading | Verify container is running: `az container show --resource-group agenticodyssey-rg --name ckriutz-mcp-server --query instanceView.state -o tsv`. |
+| MCP tools not loading | Verify the container app is running: `az containerapp show --resource-group agenticodyssey-rg --name <your-container-name> --query properties.runningStatus -o tsv`. If Foundry reports *"blocked by outbound SSRF protection"*, confirm you used the **`https://`** endpoint (Foundry requires HTTPS); on a fresh deployment the revision may still be starting — wait a minute and reconnect. |
 | Report missing news context | Try adding "supply chain OR weather OR demand OR Store-001" as a test search in the Foundry knowledge tool settings. |
 | Action items too vague | Add to your prompt: "Be specific — include exact quantities and hours". |

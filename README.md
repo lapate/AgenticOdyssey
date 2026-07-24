@@ -3,7 +3,7 @@
 Welcome to **Agentic Odyssey**! In this lab you will deploy a live Model Context Protocol (MCP) server and an Azure AI Search index, then connect them to Microsoft Foundry to build an AI agent that can query real chicken-store sales data.
 
 By the end of setup you will have:
-- ✅ A running **MCP Server** hosted in Azure (Container Instance) exposing ten create/read/update/delete (CRUD) tools over server-sent events (SSE).
+- ✅ A running **MCP Server** hosted in Azure (Container Apps) exposing ten create/read/update/delete (CRUD) tools over server-sent events (SSE).
 - ✅ An **Azure AI Search** index populated with news-story documents.
 - ✅ Both endpoints ready to wire into a Foundry agent.
 
@@ -95,7 +95,7 @@ az account set --subscription "<Your Subscription Name or ID>"
 
 ## 4. Deploy the MCP Server
 
-The MCP server is a containerized FastMCP application that exposes CRUD tools for chicken-store data over HTTP (SSE protocol). It is already built and published to GitHub Packages — you just need to deploy it to Azure.
+The MCP server is a containerized FastMCP application that exposes CRUD tools for chicken-store data over HTTPS (SSE protocol). It is already built and published to GitHub Packages — you just need to deploy it to Azure.
 
 ### 4a. Edit the deployment variables
 
@@ -121,12 +121,13 @@ bash scripts/deploy-mcp-server.sh
 
 The script will:
 1. Verify your Azure login.
-2. Create a resource group in `westus3`.
-3. Pull the pre-built container image from `ghcr.io/lapate/agenticodyssey/mcp-server:latest`.
-4. Launch an Azure Container Instance with a public IP on port 8000.
-5. Print your endpoint URL.
+2. Install the `containerapp` CLI extension and register the required resource providers.
+3. Create a resource group in `westus3`.
+4. Create an Azure Container Apps environment (first run only — this takes a few minutes).
+5. Deploy the pre-built image `ghcr.io/lapate/agenticodyssey/mcp-server:latest` as a Container App with a public **HTTPS** endpoint.
+6. Print your endpoint URL.
 
-Deployment takes approximately **1–2 minutes**.
+Deployment takes approximately **3–5 minutes** the first time (the environment has to be provisioned).
 
 ### 4c. Save your MCP endpoint
 
@@ -136,19 +137,22 @@ When the script finishes you will see output like:
 ===========================================
   MCP Server Deployment Complete
 ===========================================
-  Resource Group : mcp-lab-jsmith-rg
-  Container      : mcp-server-jsmith
+  Resource Group : agenticodyssey-rg
+  Environment    : agenticodyssey-mcp-env
+  Container App  : mcp-server-jsmith
   Location       : westus3
   Image          : ghcr.io/lapate/agenticodyssey/mcp-server:latest
-  Public IP      : 20.x.x.x
+  Public FQDN    : mcp-server-jsmith.victoriousstone-48724cd0.westus3.azurecontainerapps.io
 
   MCP SSE Endpoint:
-    http://20.x.x.x:8000/sse
+    https://mcp-server-jsmith.victoriousstone-48724cd0.westus3.azurecontainerapps.io/sse
 
 ===========================================
 ```
 
-📌 **Copy and save the SSE endpoint URL** — you will need it when configuring your Foundry agent.
+📌 **Copy and save the SSE endpoint URL** — you will need it when configuring your Foundry agent. It's an **`https://`** URL on port 443 (no `:8000`); Foundry's MCP tool requires an HTTPS endpoint, which Azure Container Apps provides automatically.
+
+> ⏳ **Give it a minute.** On a brand-new deployment the Container App revision can take a minute to start. If Foundry reports the endpoint is *"blocked by outbound SSRF protection"* right after deploying, the revision is still starting — wait a minute and reconnect.
 
 ![alt text](/docs/mcp_success.png)
 
@@ -213,7 +217,7 @@ Before moving on to the lab exercises, make sure you have noted down all three v
 
 | Value | Where to find it |
 |-------|-----------------|
-| **MCP SSE Endpoint** | Output of `deploy-mcp-server.sh` — looks like `http://<IP>:8000/sse` |
+| **MCP SSE Endpoint** | Output of `deploy-mcp-server.sh` — looks like `https://<name>.<region-id>.azurecontainerapps.io/sse` |
 | **Search Endpoint** | Output of `create-azure-ai-search.sh` — looks like `https://<name>.search.windows.net` |
 | **Search Admin Key** | Output of `create-azure-ai-search.sh` — 32-character alphanumeric string |
 
@@ -241,4 +245,5 @@ az group delete --name agenticodyssey-rg --yes --no-wait
 | `az account show` shows wrong subscription | Run `az account set --subscription "<name>"`. |
 | `AuthorizationFailed` — does not have authorization to perform action over scope | You're logged into the wrong subscription. Run `az account list` to see all available subscriptions, then run `az account set --subscription "The Name of your Subscription"` to switch to the correct one. |
 | MCP script fails with image pull error | Verify image tag: `ghcr.io/lapate/agenticodyssey/mcp-server:latest` is public. |
-| Container IP shows as empty | Wait 30 seconds and re-run: `az container show --resource-group <rg> --name <name> --query ipAddress.ip -o tsv`. |
+| Endpoint (FQDN) shows as empty | Wait ~30 seconds for the revision to provision and re-run: `az containerapp show --resource-group agenticodyssey-rg --name <your-container-name> --query properties.configuration.ingress.fqdn -o tsv`. |
+| Foundry: *"blocked by outbound SSRF protection"* when connecting the MCP tool | Use the **`https://`** endpoint from the script output (Container Apps serves it on port 443) — Foundry's MCP tool requires HTTPS. On a brand-new deployment the revision may still be starting; wait a minute and reconnect. |
