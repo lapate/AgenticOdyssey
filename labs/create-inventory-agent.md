@@ -15,15 +15,15 @@ Before starting, make sure you have:
 
 | Item | Where to get it |
 |------|----------------|
-| **MCP SSE Endpoint URL** | Output of `scripts/deploy-mcp-server.sh` — looks like `http://<name>.westus3.azurecontainer.io:8000/sse` |
+| **MCP SSE Endpoint URL** | Output of `scripts/deploy-mcp-server.sh` — looks like `https://<name>.<region-id>.azurecontainerapps.io/sse` |
 | **Azure AI Foundry project** | Your instructor will provide the project URL or you will create one |
 
-> ⚠️ **Your MCP endpoint is unique to your deployment.** It was printed at the end of the `deploy-mcp-server.sh` output. If you lost it, run this to retrieve the DNS name:
+> ⚠️ **Your MCP endpoint is unique to your deployment.** It was printed at the end of the `deploy-mcp-server.sh` output. If you lost it, run this to retrieve the FQDN:
 > ```bash
-> az container show --resource-group agenticodyssey-rg --name <your-container-name> \
->   --query ipAddress.fqdn --output tsv
+> az containerapp show --resource-group agenticodyssey-rg --name <your-container-name> \
+>   --query properties.configuration.ingress.fqdn --output tsv
 > ```
-> Then add `:8000/sse` to form your full endpoint.
+> Then form your full endpoint as `https://<fqdn>/sse`.
 
 ---
 
@@ -200,11 +200,11 @@ Which day had the highest gross profit? How does that compare to the lowest?
 
 | Problem | Solution |
 |---------|----------|
-| MCP server URL not accepted | Ensure the URL is `http://` not `https://`, and includes the full path: `http://<name>.westus3.azurecontainer.io:8000/sse`. |
-| `blocked by outbound SSRF protection` when adding the MCP tool | The container is usually just not reachable yet — wait 1–2 minutes after deployment and reconnect. |
-| Tools not discovered | Verify the container is still running: `az container show --resource-group agenticodyssey-rg --name <your-container-name> --query instanceView.state -o tsv`. |
-| Agent returns "I don't have access to data" | Check that the MCP tool is enabled (toggle is on) in the Tools section. |
-| Container IP changed | Re-run `scripts/deploy-mcp-server.sh` — it prints the current DNS name and endpoint at the end. |
+| MCP server URL not accepted | Ensure the URL is the full **`https://`** endpoint including the `/sse` path: `https://<name>.<region-id>.azurecontainerapps.io/sse`. |
+| `blocked by outbound SSRF protection` when adding the MCP tool | Make sure you're using the **`https://`** endpoint from the script output (Foundry requires HTTPS). On a brand-new deployment the Container App revision may still be starting — wait a minute and reconnect. |
+| Tools not discovered | Verify the container app is running: `az containerapp show --resource-group agenticodyssey-rg --name <your-container-name> --query properties.runningStatus -o tsv`. |
+| Agent returns "I don't have access to data" | Check that the MCP tool is enabled (toggle is on) in the Tools section, and that all 10 tools were discovered before you saved. |
+| Endpoint (FQDN) changed | Re-run `scripts/deploy-mcp-server.sh` — it prints the current HTTPS endpoint at the end. |
 
 ---
 

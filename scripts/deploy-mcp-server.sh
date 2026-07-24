@@ -4,7 +4,7 @@ set -euo pipefail
 ###############################################################################
 # deploy-mcp-server.sh
 #
-# Deploys the MCP Server container to Azure Container Instances (ACI).
+# Deploys the MCP Server container to Azure Container Apps (HTTPS ingress).
 #
 # ┌─────────────────────────────────────────────────────────────────────────┐
 # │  INSTRUCTIONS FOR STUDENTS                                             │
@@ -26,7 +26,7 @@ set -euo pipefail
 ###############################################################################
 
 # ── STUDENT: Edit these variables ────────────────────────────────────────────
-# CONTAINER_NAME : Name for the container instance (must be unique to you).
+# CONTAINER_NAME : Name for the container app (must be unique to you).
 #                  Example: "mcp-server-jsmith"
 CONTAINER_NAME="${CONTAINER_NAME:-mcp-server}"
 
@@ -38,6 +38,7 @@ IMAGE_TAG="${IMAGE_TAG:-latest}"
 # ── Fixed values (do not change) ─────────────────────────────────────────────
 RESOURCE_GROUP="agenticodyssey-rg"
 LOCATION="westus3"
+ENVIRONMENT="agenticodyssey-mcp-env"
 # ─────────────────────────────────────────────────────────────────────────────
 
 # ── Derived values (no need to edit) ─────────────────────────────────────────
@@ -72,37 +73,60 @@ az group create \
 echo "Resource group '$RESOURCE_GROUP' ready."
 echo ""
 
-# ── Deploy Container Instance ────────────────────────────────────────────────
-echo "=== Deploying container: $CONTAINER_NAME ==="
-az container create \
-    --resource-group "$RESOURCE_GROUP" \
-    --name "$CONTAINER_NAME" \
-    --image "$IMAGE" \
-    --ports "$PORT" \
-    --ip-address Public \
-    --dns-name-label "$CONTAINER_NAME" \
-    --location "$LOCATION" \
-    --cpu 1 \
-    --memory 1 \
-    --os-type Linux \
-    --restart-policy Always \
-    --output none
-
-echo "Container '$CONTAINER_NAME' deployed."
+# ── Ensure Container Apps prerequisites ──────────────────────────────────────
+echo "=== Ensuring Azure Container Apps extension and providers ==="
+az extension add --name containerapp --upgrade --only-show-errors
+az provider register --namespace Microsoft.App --wait
+az provider register --namespace Microsoft.OperationalInsights --wait
+echo "Extension and providers ready."
 echo ""
 
-# ── Get Public IP and FQDN ───────────────────────────────────────────────────
-echo "=== Retrieving public IP and DNS name ==="
-IP_ADDRESS=$(az container show \
-    --resource-group "$RESOURCE_GROUP" \
-    --name "$CONTAINER_NAME" \
-    --query ipAddress.ip \
-    --output tsv)
+# ── Create Container Apps Environment ────────────────────────────────────────
+echo "=== Ensuring Container Apps environment: $ENVIRONMENT ==="
+if az containerapp env show --name "$ENVIRONMENT" --resource-group "$RESOURCE_GROUP" &> /dev/null; then
+    echo "Environment '$ENVIRONMENT' already exists — reusing it."
+else
+    echo "Creating environment '$ENVIRONMENT' (this can take 3-5 minutes)..."
+    az containerapp env create \
+        --name "$ENVIRONMENT" \
+        --resource-group "$RESOURCE_GROUP" \
+        --location "$LOCATION" \
+        --output none
+fi
+echo ""
 
-FQDN=$(az container show \
-    --resource-group "$RESOURCE_GROUP" \
+# ── Deploy Container App ─────────────────────────────────────────────────────
+echo "=== Deploying container app: $CONTAINER_NAME ==="
+if az containerapp show --name "$CONTAINER_NAME" --resource-group "$RESOURCE_GROUP" &> /dev/null; then
+    echo "Container app exists — updating to image $IMAGE..."
+    az containerapp update \
+        --name "$CONTAINER_NAME" \
+        --resource-group "$RESOURCE_GROUP" \
+        --image "$IMAGE" \
+        --output none
+else
+    az containerapp create \
+        --name "$CONTAINER_NAME" \
+        --resource-group "$RESOURCE_GROUP" \
+        --environment "$ENVIRONMENT" \
+        --image "$IMAGE" \
+        --target-port "$PORT" \
+        --ingress external \
+        --transport auto \
+        --cpu 1 --memory 2Gi \
+        --min-replicas 1 --max-replicas 1 \
+        --output none
+fi
+
+echo "Container app '$CONTAINER_NAME' deployed."
+echo ""
+
+# ── Get HTTPS Endpoint (FQDN) ────────────────────────────────────────────────
+echo "=== Retrieving HTTPS endpoint ==="
+FQDN=$(az containerapp show \
     --name "$CONTAINER_NAME" \
-    --query ipAddress.fqdn \
+    --resource-group "$RESOURCE_GROUP" \
+    --query "properties.configuration.ingress.fqdn" \
     --output tsv)
 
 # ── Print Connection Info ────────────────────────────────────────────────────
@@ -111,24 +135,23 @@ echo "==========================================="
 echo "  MCP Server Deployment Complete"
 echo "==========================================="
 echo "  Resource Group : $RESOURCE_GROUP"
-echo "  Container      : $CONTAINER_NAME"
+echo "  Environment    : $ENVIRONMENT"
+echo "  Container App  : $CONTAINER_NAME"
 echo "  Location       : $LOCATION"
 echo "  Image          : $IMAGE"
-echo "  Public IP      : $IP_ADDRESS"
-echo "  DNS Name       : $FQDN"
+echo "  Public FQDN    : $FQDN"
 echo ""
 echo "  MCP SSE Endpoint:"
-echo "    http://${FQDN}:${PORT}/sse"
+echo "    https://${FQDN}/sse"
 echo ""
 echo "==========================================="
 echo ""
 echo "Use this endpoint URL in Foundry or any MCP client."
 echo ""
-echo "NOTE: The container can take 1-2 minutes to finish starting."
-echo "      If Foundry reports the endpoint is 'blocked by outbound SSRF"
-echo "      protection', the server is usually just not reachable yet --"
-echo "      wait a couple of minutes and reconnect. The DNS name above"
-echo "      gives you a stable, readable endpoint (the raw IP works too)."
+echo "NOTE: Azure Container Apps serves this over HTTPS on port 443, which"
+echo "      Foundry's MCP tool requires. If a fresh deployment briefly reports"
+echo "      'blocked by outbound SSRF protection', the revision is still"
+echo "      starting -- wait a minute and reconnect."
 echo ""
 echo "To clean up resources when done:"
 echo "  az group delete --name $RESOURCE_GROUP --yes --no-wait"
